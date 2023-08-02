@@ -66,18 +66,18 @@
                             <span class="text-white">User</span>
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Profil</a></li>
-                            <li><a class="dropdown-item" href="#">Ayarlar</a></li>
+                            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginModal">Giriş Yap</button></li>
+                            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#registerModal">Üye Ol</button></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Çıkış Yap</a></li>
+                            <li><a class="dropdown-item" href="#">İletişim</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
+    @include("Widgets.register")
+    @include("Widgets.login")
     <div class="container">
         <div class="row">
             <div class="col-3">
