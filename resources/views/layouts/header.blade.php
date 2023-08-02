@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield("title")</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
     <div class="d-flex flex-column flex-shrink-0 text-bg-dark" style="width: 280px; height:100%; position: fixed; left: 0px;">
@@ -25,20 +26,70 @@
             </li>
             <li>
                 <a href="#" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                Orders
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Takip Edilenler
                 </a>
             </li>
+            <hr>
             <li>
                 <a href="#" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                Products
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Kitaplar
                 </a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                Customers
+                Filmler
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Diziler
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Aktörler
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Yazarlar
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Yönetmenler
+                </a>
+            </li>
+            <hr>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                İletişim
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Hakkında
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Gizlilik Politikası
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Sıkça Sorulan Sorular
                 </a>
             </li>
         </ul>
@@ -60,18 +111,28 @@
                     </form>
                 </div>
                 <div class="col">
+                    @if(isset(Auth::user()->name))
                     <div class="dropdown text-end">
+                        <a href="#" style="color: white; margin-right: 10px;"><i class="bi bi-chat-square-dots"></i></a>
+                        <a href="#" style="color: white; margin-right: 10px;"><i class="bi bi-bell"></i></a>
                         <a href="#" class="link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                            <span class="text-white">User</span>
+                            <span class="text-white">{{Auth::user()->name}}</span>
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginModal">Giriş Yap</button></li>
-                            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#registerModal">Üye Ol</button></li>
+                            <li><a href="#" class="dropdown-item">Profil</a></li>
+                            <li><a href="#" class="dropdown-item">Arkadaşlar</a></li>
+                            <li><a href="#" class="dropdown-item">İçerik Ekle</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">İletişim</a></li>
+                            <li><a href="#" class="dropdown-item"><i class="bi bi-sliders2"></i> Ayarlar</a></li>
+                            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-door-closed"></i> Çıkış Yap</button></li>
                         </ul>
                     </div>
+                    @else
+                    <div class="text-end">
+                        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginModal">Giriş Yap / Üye Ol</button>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -18,23 +18,26 @@ class UserController extends Controller
             $user->date = now();
             $user->password = bcrypt($request->password);
             $user->save();
+            toastr()->success("Kayıt Olundu","Kayıt Başarılı");
             return redirect()->back();
 
-        }else{
-
+        }elseif($request->process=="login"){
             if(
                 Auth::attempt([
                     "username" => $request->username,
                     "password" => $request->password
                 ])
             ){
-                // return redirect()->route("admin.dashboard");
-                return "Başarılı";
+                toastr()->success("Giriş Yapıldı","Başarılı");
+                return redirect()->back();
             }else{
-                // return redirect()->route("admin.login")->withErrors("Parola veya E-Posta hatalı!");
-                return "Başarısız";
+                toastr()->error("Kullanıcı Adı veya Şifre hatalı!","Başarısız");
+                return redirect()->back();
             }
-
+        }else{
+            Auth::logout();
+            toastr()->success("Çıkış Yapıldı","Başarılı");
+            return redirect()->route("homepage");
         }
     }
 }
