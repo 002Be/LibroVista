@@ -13,7 +13,7 @@
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
                 <!-- <a href="#" class="nav-link active" aria-current="page"> -->
-                <a href="#" class="nav-link text-white" aria-current="page">
+                <a href="{{route('HomePage')}}" class="nav-link text-white" aria-current="page">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
                 Keşfet
                 </a>
@@ -32,7 +32,7 @@
             </li>
             <hr>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="{{route('books.index')}}" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                 Kitaplar
                 </a>
@@ -69,25 +69,25 @@
             </li>
             <hr>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="{{route('page.contact')}}" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                 İletişim
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="{{route('page.about')}}" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                 Hakkında
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="{{route('page.privacyPolicy')}}" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                 Gizlilik Politikası
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="{{route('page.faq')}}" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                 Sıkça Sorulan Sorular
                 </a>
