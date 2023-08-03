@@ -5,6 +5,7 @@ Hakkında...Projenin ilerleyen vakitlerinde eklenecektir
 Sayfalar...Projenin ilerleyen vakitlerinde eklenecektir
 
 ## Durum
+
 03.08.2023 | Arka plan rengi belirlendi.
 03.08.2023 | Profil ve Ayarlar sayfaları hazılandı.
 03.08.2023 | İletişim, Hakkında, Gizlilik Politikası ve Sıkça Sorulan Sorular sayfaları hazırlandı.
