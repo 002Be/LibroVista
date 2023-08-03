@@ -6,13 +6,13 @@ Sayfalar...Projenin ilerleyen vakitlerinde eklenecektir
 
 ## Durum
 
-03.08.2023 | Arka plan rengi belirlendi.
-03.08.2023 | Profil ve Ayarlar sayfaları hazılandı.
-03.08.2023 | İletişim, Hakkında, Gizlilik Politikası ve Sıkça Sorulan Sorular sayfaları hazırlandı.
-03.08.2023 | Çıkış Yap özelliği hazırlandı. Etkin hale getirildi.
-02.08.2023 | Header ve Sidebar yapıldı. Sayfaların şablonu belirlendi.
-02.08.2023 | Giriş Yap ve Üye Ol özelliği hazılandı. Etkin hale getirildi.
-02.08.2023 | Proje başlangıç tarihi.
+- 03.08.2023 | Arka plan rengi belirlendi.
+- 03.08.2023 | Profil ve Ayarlar sayfaları hazılandı.
+- 03.08.2023 | İletişim, Hakkında, Gizlilik Politikası ve Sıkça Sorulan Sorular sayfaları hazırlandı.
+- 03.08.2023 | Çıkış Yap özelliği hazırlandı. Etkin hale getirildi.
+- 02.08.2023 | Header ve Sidebar yapıldı. Sayfaların şablonu belirlendi.
+- 02.08.2023 | Giriş Yap ve Üye Ol özelliği hazılandı. Etkin hale getirildi.
+- 02.08.2023 | Proje başlangıç tarihi.
 
 ## Teknolojiler ve Kullanılanlar
 "LibroVista" projesi aşağıdaki teknolojiler kullanılarak geliştirilmiştir:
