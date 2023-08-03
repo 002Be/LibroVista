@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
-<body>
-    <div class="d-flex flex-column flex-shrink-0 text-bg-dark" style="width: 280px; height:100%; position: fixed; left: 0px;">
+<body style="background-color: #191a1f; color:white;">
+    <div class="d-flex flex-column flex-shrink-0" style="width: 280px; height:100%; position: fixed; left: 0px;">
         <br><br><br>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
@@ -100,7 +100,7 @@
         <br>
     </div>
 
-    <header class="p-3 text-bg-dark">
+    <header class="p-3" style="position: fixed; width:100%; z-index: 1;">
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col">
@@ -145,4 +145,4 @@
             <div class="col-3">
                 
             </div>
-            <div class="col-6" style="margin-top: 50px;">
+            <div class="col-6" style="margin-top: 100px;">
