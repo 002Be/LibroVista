@@ -49,20 +49,24 @@
 
 
                     <!--  -->
-                    <div class="card">
+                    <div class="card" id="publicInfo">
                         <div class="card-header">
-                            <h5 class="card-title mb-0">Public info</h5>
+                            <h5 class="card-title mb-0">Genel Bilgi</h5>
                         </div>
                         <div class="card-body">
                             <form>
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="inputUsername">Username</label>
+                                            <label for="inputUsername">Kullanıcı Adı</label>
                                             <input type="text" class="form-control" id="inputUsername" placeholder="Username">
-                                        </div>
+                                        </div><br>
                                         <div class="form-group">
-                                            <label for="inputUsername">Biography</label>
+                                            <label for="inputUsername">Ad Soyadı</label>
+                                            <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                                        </div><br>
+                                        <div class="form-group">
+                                            <label for="inputUsername">Hakkında</label>
                                             <textarea rows="2" class="form-control" id="inputBio" placeholder="Tell something about yourself"></textarea>
                                         </div>
                                     </div>
@@ -72,20 +76,20 @@
                                             <div class="mt-2">
                                                 <span class="btn btn-primary"><i class="fa fa-upload"></i></span>
                                             </div>
-                                            <small>For best results, use an image at least 128px by 128px in .jpg format</small>
+                                            <small>En iyi sonuçlar için .jpg biçiminde en az 128 piksele 128 piksel boyutlarında bir resim kullanın</small>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button type="submit" class="btn btn-primary">Kaydet</button>
                             </form>
                         </div>
                     </div>
 
 
                     <!--  -->
-                    <div class="card">
+                    <div class="card" id="privateInfo">
                         <div class="card-header">
-                            <h5 class="card-title mb-0">Private info</h5>
+                            <h5 class="card-title mb-0">Özel Bilgi</h5>
                         </div>
                         <div class="card-body">
                             <form>
@@ -110,7 +114,7 @@
                 <!--  -->
                 <div class="card" id="password">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Şifre</h5>
+                        <h5 class="card-title mb-0">Şifre Değiştir</h5>
                     </div>
                     <div class="card-body">
                         <form>
@@ -139,34 +143,25 @@
 
 @endsection
 @section("rightBar")
-<div class="card">
+<div class="card" style="position: fixed; width:300px">
     <div class="card-header">
         <h5 class="card-title mb-0">Profile Settings</h5>
     </div>
     <div class="list-group list-group-flush" role="tablist">
-        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account" role="tab">
-            Account
+        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#publicInfo" role="tab">
+            Genel Bilgi
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#privateInfo" role="tab">
+            Özel Bilgi
         </a>
         <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
-            Password
+            Şifre Değiştir
         </a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-            Privacy and safety
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#notification" role="tab">
+            Bildirimler
         </a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-            Email notifications
-        </a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-            Web notifications
-        </a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-            Widgets
-        </a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-            Your data
-        </a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-            Delete account
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#deleteAccount" role="tab">
+            Hesabı Sil
         </a>
     </div>
 </div>
