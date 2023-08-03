@@ -10,13 +10,17 @@ Route::get('/', function () {
 Route::post('/', [App\Http\Controllers\UserController::class, 'userLoginRegister'])->name("userLoginRegister");
 // | Auth İşlemleri--------------------------------------------------------------------------
 
+// | Profil Sayfası---------------------------------------------------------------------------
+Route::get('/Profil', function(){ return view('profile/index'); })->name("profile.index");
+// | Profil Sayfası---------------------------------------------------------------------------
+
 // | Kitap İşlemleri--------------------------------------------------------------------------
 Route::get('/Kitaplar', function(){ return view('books/index'); })->name("books.index");
 // | Kitap İşlemleri--------------------------------------------------------------------------
 
-// | Ayarlar Sayfalar-------------------------------------------------------------------------
+// | Ayarlar Sayfası--------------------------------------------------------------------------
 Route::get('/Ayarlar', function(){ return view('settings/index'); })->name("settings.index");
-// | Ayarlar Sayfalar-------------------------------------------------------------------------
+// | Ayarlar Sayfası--------------------------------------------------------------------------
 
 // | Diğer Sayfalar---------------------------------------------------------------------------
 Route::get("/About", function(){ return view("Others/About"); })->name("page.about");
