@@ -37,7 +37,7 @@ class UserController extends Controller
         }else{
             Auth::logout();
             toastr()->success("Çıkış Yapıldı","Başarılı");
-            return redirect()->route("homepage");
+            return redirect()->route("HomePage");
         }
     }
 }
