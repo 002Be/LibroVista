@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="mb-5">
-        <h1 class="text-center"><b>Gizlilik Politikası</b></h1>
+        <h1 class="h1-responsive font-weight-bold text-center my-4">Gizlilik Politikası</h1>
     </div>
     <div>
         <h6>Son güncelleme tarihi: 03.08.2023</h6>

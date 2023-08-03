@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="mb-5">
-        <h1 class="text-center"><b>Sıkça Sorulan Sorular</b></h1>
+        <h1 class="h1-responsive font-weight-bold text-center my-4">Sıkça Sorulan Sorular</h1>
     </div>
     <div>
         <section>
