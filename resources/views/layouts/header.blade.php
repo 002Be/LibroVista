@@ -125,7 +125,7 @@
                             <li><a href="#" class="dropdown-item">Arkadaşlar</a></li>
                             <li><a href="#" class="dropdown-item">İçerik Ekle</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a href="#" class="dropdown-item"><i class="bi bi-sliders2"></i> Ayarlar</a></li>
+                            <li><a href="{{route('settings.index')}}" class="dropdown-item"><i class="bi bi-sliders2"></i> Ayarlar</a></li>
                             <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-door-closed"></i> Çıkış Yap</button></li>
                         </ul>
                     </div>

@@ -1,6 +1,6 @@
 
             </div>
-            <div class="col-3">
+            <div class="col-3" style="margin-top: 50px;">
                 @yield("rightBar")
             </div>
         </div>
