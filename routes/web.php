@@ -20,6 +20,7 @@ Route::get('/Kitaplar', function(){ return view('books/index'); })->name("books.
 
 // | Ayarlar Sayfası--------------------------------------------------------------------------
 Route::get('/Ayarlar', [App\Http\Controllers\UserController::class, 'userSettings'])->name("settings.index");
+Route::post('/Ayarlar', [App\Http\Controllers\UserController::class, 'userSettingsUpdate'])->name("settings.index.update");
 // | Ayarlar Sayfası--------------------------------------------------------------------------
 
 // | Diğer Sayfalar---------------------------------------------------------------------------

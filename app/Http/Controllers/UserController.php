@@ -60,4 +60,57 @@ class UserController extends Controller
 
         return view("settings.index", compact("user","userData"));
     }
+
+    public function userSettingsUpdate(Request $request){
+        $user = User::where('username', Auth::user()->username)->first();
+        if($request->process == "publicInfo"){
+
+            $user->name = $request->name;
+            $user->username = $request->username;
+            $user->date = $request->date;
+            $user->save();
+            toastr()->success("Bilgiler başarıyla değiştirildi","Başarılı");
+            return redirect()->back();
+
+        }else if($request->process == "email"){
+
+            if($user->email == $request->oldEmail && $request->newEmail == $request->newEmailR){
+                $user->email = $request->newEmail;
+                $user->save();
+                toastr()->success("E-Posta adresi değiştirildi","Başarılı");
+                return redirect()->back();
+            }else{
+                toastr()->error("E-Posta adresi değiştirilemedi","Başarısız");
+                return redirect()->back();
+            }
+
+        }else if($request->process == "password"){
+
+            if(Auth::attempt(["password" => $request->oldPassword])){
+                if($request->newPassword == $request->newPasswordR){
+                    $user->password = bcrypt($request->newPassword);
+                    $user->save();
+                    toastr()->success("Şifre değiştirildi","Başarılı");
+                    return redirect()->back();
+                }else{
+                    toastr()->error("Yeni şifreler uyuşmuyor!","Başarısız");
+                    return redirect()->back();
+                }
+            }else{
+                toastr()->error("Şifrenizi hatalı girdiniz!","Başarısız");
+                return redirect()->back();
+            }
+
+        }else if($request->process == "notification"){
+
+            
+
+        }else if($request->process == "deleteAccount"){
+
+            
+
+        }else{
+            return view("HomePage");
+        }
+    }
 }

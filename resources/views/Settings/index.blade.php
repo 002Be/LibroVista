@@ -1,7 +1,6 @@
 @extends("layouts.master")
 @section("title", "Ayarlar")
 @section("css")
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <style>
     body{
@@ -54,24 +53,25 @@
                             <h5 class="card-title mb-0">Genel Bilgiler</h5>
                         </div>
                         <div class="card-body">
-                            <form> @csrf
+                            <form method="POST" action="{{route('settings.index.update')}}"> @csrf
+                                <input type="hidden" name="process" value="publicInfo">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="inputUsername">Kullanıcı Adı</label>
-                                            <input type="text" class="form-control" id="inputUsername" value="{{$user->username}}" placeholder="Username">
+                                            <input name="username" type="text" class="form-control" id="inputUsername" value="{{$user->username}}" placeholder="Username" required>
                                         </div><br>
                                         <div class="form-group">
                                             <label for="inputUsername">Ad Soyadı</label>
-                                            <input type="text" class="form-control" id="inputUsername" value="{{$user->name}}" placeholder="Username">
+                                            <input name="name" type="text" class="form-control" id="inputUsername" value="{{$user->name}}" placeholder="Username" required>
                                         </div><br>
                                         <div class="form-group col-md-4">
                                             <label for="datepicker">Doğum Tarihi</label>
-                                            <input type="text" class="form-control" id="datepicker" name="datepicker" value="{{$user->date}}" readonly>
+                                            <input name="date" type="date" class="form-control" id="datepicker" name="datepicker" value="{{$user->date}}">
                                         </div><br>
                                         <div class="form-group">
                                             <label for="inputUsername">Hakkında</label>
-                                            <textarea rows="5" class="form-control" id="inputBio" placeholder="Sizin hakkınızda">{{$userData['biography']}}</textarea><br>
+                                            <textarea name="biography" rows="5" class="form-control" id="inputBio" placeholder="Sizin hakkınızda">{{$userData['biography']}}</textarea><br>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -97,18 +97,19 @@
                         <h5 class="card-title mb-0">E-Posta Adresini Değiştir</h5>
                     </div>
                     <div class="card-body">
-                        <form> @csrf
+                        <form method="POST" action="{{route('settings.index.update')}}"> @csrf
+                            <input type="hidden" name="process" value="email">
                             <div class="form-group">
-                                <label for="inputEmail4">Mevcut E-Posta Adresiniz</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <label for="inputEmail1">Mevcut E-Posta Adresiniz</label>
+                                <input name="oldEmail" type="email" class="form-control" id="inputEmail1" required>
                             </div><br>
                             <div class="form-group">
-                                <label for="inputEmail4">Yeni E-Posta Adresiniz</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <label for="inputEmail2">Yeni E-Posta Adresiniz</label>
+                                <input name="newEmail" type="email" class="form-control" id="inputEmail2" required>
                             </div><br>
                             <div class="form-group">
-                                <label for="inputEmail4">Tekrar Yeni E-Posta Adresiniz</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <label for="inputEmail3">Tekrar Yeni E-Posta Adresiniz</label>
+                                <input name="newEmailR" type="email" class="form-control" id="inputEmail3" required>
                             </div><br>
                             <button type="submit" class="btn btn-success">Kaydet</button>
                         </form>
@@ -122,19 +123,20 @@
                         <h5 class="card-title mb-0">Şifreni Değiştir</h5>
                     </div>
                     <div class="card-body">
-                        <form> @csrf
+                        <form method="POST" action="{{route('settings.index.update')}}"> @csrf
+                            <input type="hidden" name="process" value="password">
                             <div class="form-group">
-                                <label for="inputPasswordCurrent">Mevcut Şifreniz</label>
-                                <input type="password" class="form-control" id="inputPasswordCurrent">
+                                <label for="inputPassword">Mevcut Şifreniz</label>
+                                <input name="oldPassword" type="password" class="form-control" id="inputPassword" required>
                                 <small><a href="#">Şifreni mi unuttun?</a></small>
                             </div><br>
                             <div class="form-group">
                                 <label for="inputPasswordNew">Yeni Şifreniz</label>
-                                <input type="password" class="form-control" id="inputPasswordNew">
+                                <input name="newPassword" type="password" class="form-control" id="inputPasswordNew" required>
                             </div><br>
                             <div class="form-group">
                                 <label for="inputPasswordNew2">Tekrar Yeni Şifreniz</label>
-                                <input type="password" class="form-control" id="inputPasswordNew2">
+                                <input name="newPasswordR" type="password" class="form-control" id="inputPasswordNew2" required>
                             </div><br>
                             <button type="submit" class="btn btn-success">Kaydet</button>
                         </form>
@@ -147,26 +149,27 @@
                         <h5 class="card-title mb-0">Bildirim Seçenekleri</h5>
                     </div>
                     <div class="card-body">
-                        <form> @csrf
+                        <form method="POST" action="{{route('settings.index.update')}}"> @csrf
+                            <input type="hidden" name="process" value="notification">
                             <div class="form-check form-switch">
-                                <input class="form-check-input float-end" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">E-Posta bildirimleri</label>
+                                <input name="" class="form-check-input float-end" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                             </div>
                             <div class="form-check form-switch">
                                 <label class="form-check-label" for="flexSwitchCheckChecked">Mobil anlık bildirimleri</label>
-                                <input class="form-check-input float-end" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                                <input name="" class="form-check-input float-end" type="checkbox" role="switch" id="flexSwitchCheckChecked">
                             </div>
                             <div class="form-check form-switch">
                                 <label class="form-check-label" for="flexSwitchCheckChecked">Takip bildirimleri</label>
-                                <input class="form-check-input float-end" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                                <input name="" class="form-check-input float-end" type="checkbox" role="switch" id="flexSwitchCheckChecked">
                             </div>
                             <div class="form-check form-switch">
                                 <label class="form-check-label" for="flexSwitchCheckChecked">Sosyal bildirimler</label>
-                                <input class="form-check-input float-end" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                                <input name="" class="form-check-input float-end" type="checkbox" role="switch" id="flexSwitchCheckChecked">
                             </div>
                             <div class="form-check form-switch">
                                 <label class="form-check-label" for="flexSwitchCheckChecked">Kişiselleştirilmiş bildirimler</label>
-                                <input class="form-check-input float-end" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                                <input name="" class="form-check-input float-end" type="checkbox" role="switch" id="flexSwitchCheckChecked">
                             </div>
                             <br>
                             <button type="submit" class="btn btn-success">Kaydet</button>
@@ -199,7 +202,8 @@
                         <h5 class="card-title mb-0">Hesabını Sil</h5>
                     </div>
                     <div class="card-body">
-                        <form> @csrf
+                        <form method="POST" action="{{route('settings.index.update')}}"> @csrf
+                            <input type="hidden" name="process" value="deleteAccount">
                             <p><b>LibroVista</b> hesabınızı silmek istediğinizden emin misiniz? Hesabınızı sildiğinizde, tüm kişisel verileriniz ve içerikleriniz kalıcı olarak silinecektir ve geri döndürülemez. Lütfen bu işlemi dikkatlice düşünün ve karar verin.</p>
                             <br>
                             <button type="submit" class="btn btn-danger">Hesabı Kalıcı Olarak Sil</button>
@@ -241,14 +245,4 @@
         </a>
     </div>
 </div>
-@endsection
-@section("js")
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-    $(function() {
-        // Takvim özelliğini etkinleştiriyoruz
-        $("#datepicker").datepicker();
-    });
-</script>
 @endsection
