@@ -19,7 +19,7 @@ Route::get('/Kitaplar', function(){ return view('books/index'); })->name("books.
 // | Kitap İşlemleri--------------------------------------------------------------------------
 
 // | Ayarlar Sayfası--------------------------------------------------------------------------
-Route::get('/Ayarlar', function(){ return view('settings/index'); })->name("settings.index");
+Route::get('/Ayarlar', [App\Http\Controllers\UserController::class, 'userSettings'])->name("settings.index");
 // | Ayarlar Sayfası--------------------------------------------------------------------------
 
 // | Diğer Sayfalar---------------------------------------------------------------------------

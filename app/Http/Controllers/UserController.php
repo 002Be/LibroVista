@@ -50,4 +50,14 @@ class UserController extends Controller
 
         return view("profile.index", compact("users","userData"));
     }
+
+    public function userSettings(){
+        $user = User::where("username", Auth::user()->username)->first();
+
+        $userData = User::select('data')->where('username', Auth::user()->username)->first();
+        $json_data = $userData->data;
+        $userData = json_decode($json_data, true);
+
+        return view("settings.index", compact("user","userData"));
+    }
 }
