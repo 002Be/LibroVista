@@ -121,7 +121,7 @@
                             <span class="text-white">{{Auth::user()->name}}</span>
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a href="{{route('profile.index')}}" class="dropdown-item">Profil</a></li>
+                            <li><a href="{{route('profile.index', Auth::user()->username)}}" class="dropdown-item">Profil</a></li>
                             <li><a href="#" class="dropdown-item">Arkadaşlar</a></li>
                             <li><a href="#" class="dropdown-item">İçerik Ekle</a></li>
                             <li><hr class="dropdown-divider"></li>

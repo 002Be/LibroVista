@@ -11,7 +11,7 @@ Route::post('/', [App\Http\Controllers\UserController::class, 'userLoginRegister
 // | Auth İşlemleri--------------------------------------------------------------------------
 
 // | Profil Sayfası---------------------------------------------------------------------------
-Route::get('/Profil', function(){ return view('profile/index'); })->name("profile.index");
+Route::get('/Profil/{username}', [App\Http\Controllers\UserController::class, 'userProfile'])->name("profile.index");
 // | Profil Sayfası---------------------------------------------------------------------------
 
 // | Kitap İşlemleri--------------------------------------------------------------------------

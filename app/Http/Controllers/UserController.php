@@ -40,4 +40,14 @@ class UserController extends Controller
             return redirect()->route("HomePage");
         }
     }
+
+    public function userProfile($username){
+        $users = User::where("username", $username)->get();
+
+        $userData = User::select('data')->where('username', $username)->first();
+        $json_data = $userData->data;
+        $userData = json_decode($json_data, true);
+
+        return view("profile.index", compact("users","userData"));
+    }
 }

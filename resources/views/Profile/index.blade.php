@@ -460,40 +460,40 @@
         <div class="card-body">
             <div class="text-center">
                 <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="user-profile">
-                <h3>Ad Soyadı</h3>
-                <p>@kullaniciAdi</p>
-                <div class="d-flex align-items-center justify-content-center mb-3">
+                <h3>{{$users[0]->name}}</h3>
+                <p>{{"@".$users[0]->username}}</p>
+                <!-- <div class="d-flex align-items-center justify-content-center mb-3">
                     <i class="fas fa-star text-info"></i>
                     <i class="fas fa-star text-info"></i>
                     <i class="fas fa-star text-info"></i>
                     <i class="fas fa-star text-info"></i>
                     <i class="fas fa-star text-info"></i>
-                </div>
+                </div> -->
+                <br>
             </div>
             <div class="personal-info">
                 <h3>Kişisel Bilgiler</h3>
                 <ul class="personal-list">
-                    <li><i class="fas fa-briefcase "></i><span>Web Designer</span></li>
-                    <li><i class="fas fa-map-marker-alt "></i><span> Türkiye</span></li>
+                    <li><i class="bi bi-file-person"></i><span> {{$userData["biography"]}}</span></li>
+                    <li><i class="fas fa-map-marker-alt "></i><span> {{$userData["location"]}}</span></li>
                 </ul>
             </div>
             <hr>
             <div>
-                <h3>Durum</h3>
-                <p>Bitirilen Kitap Sayısı</p>
-                <div class="progress mb-3">
-                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p>Bitirilen Film Sayısı</p>
-                <div class="progress mb-3">
-                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p>Bitirilen Dizi Sayısı</p>
-                <div class="progress mb-3">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+                <h5 class="mt-3">Bitirilen Kitaplar</h5>
+                @foreach($userData['books_read'] as $friend)
+                    {{$friend['name']}}<br>
+                @endforeach
+                <h5 class="mt-3">Bitirilen Filmler</h5>
+                @foreach($userData['movies_watched'] as $friend)
+                    {{$friend['name']}}<br>
+                @endforeach
+                <h5 class="mt-3">Bitirilen Diziler</h5>
+                @foreach($userData['series_wached'] as $friend)
+                    {{$friend['name']}}<br>
+                @endforeach
+                
             </div>
         </div>
     </div>
-
 @endsection
