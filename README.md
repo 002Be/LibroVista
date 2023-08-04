@@ -5,7 +5,8 @@ Hakkında...Projenin ilerleyen vakitlerinde eklenecektir
 Sayfalar...Projenin ilerleyen vakitlerinde eklenecektir
 
 ## Durum
-
+- 04.08.2023 | Ayarlar sayfasında ki bazı özellikler etkin hale getirildi.
+- 04.08.2023 | Profil ve ayarlar sayfalarında değişiklikler yapıldı.
 - 03.08.2023 | Arka plan rengi belirlendi.
 - 03.08.2023 | Profil ve Ayarlar sayfaları hazılandı.
 - 03.08.2023 | İletişim, Hakkında, Gizlilik Politikası ve Sıkça Sorulan Sorular sayfaları hazırlandı.

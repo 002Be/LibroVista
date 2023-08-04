@@ -128,7 +128,6 @@
                             <div class="form-group">
                                 <label for="inputPassword">Mevcut Şifreniz</label>
                                 <input name="oldPassword" type="password" class="form-control" id="inputPassword" required>
-                                <small><a href="#">Şifreni mi unuttun?</a></small>
                             </div><br>
                             <div class="form-group">
                                 <label for="inputPasswordNew">Yeni Şifreniz</label>

@@ -85,8 +85,8 @@ class UserController extends Controller
             }
 
         }else if($request->process == "password"){
-
-            if(Auth::attempt(["password" => $request->oldPassword])){
+            // if(Auth::attempt(["password" => $request->oldPassword])){
+            if($user->password == $request->oldPassword){
                 if($request->newPassword == $request->newPasswordR){
                     $user->password = bcrypt($request->newPassword);
                     $user->save();

@@ -123,7 +123,7 @@
                         <ul class="dropdown-menu text-small">
                             <li><a href="{{route('profile.index', Auth::user()->username)}}" class="dropdown-item">Profil</a></li>
                             <li><a href="#" class="dropdown-item">Arkadaşlar</a></li>
-                            <li><a href="#" class="dropdown-item">İçerik Ekle</a></li>
+                            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#contentModal">İçerik Ekle</button></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a href="{{route('settings.index')}}" class="dropdown-item"><i class="bi bi-sliders2"></i> Ayarlar</a></li>
                             <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-door-closed"></i> Çıkış Yap</button></li>
