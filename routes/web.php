@@ -24,18 +24,18 @@ Route::post('/Ayarlar', [App\Http\Controllers\UserController::class, 'userSettin
 // | Ayarlar Sayfası--------------------------------------------------------------------------
 
 // | İçerik Sayfaları-------------------------------------------------------------------------
-Route::get('/Kitap/Ekle', function(){ return view('Contents/book'); })->name("contents.book");
-Route::post('/Kitap/Ekle', [App\Http\Controllers\ContentController::class, 'bookAdd'])->name("contents.book.add");
-Route::get('/Film/Ekle', function(){ return view('Contents/movie'); })->name("contents.movie");
-Route::post('/Film/Ekle', [App\Http\Controllers\ContentController::class, 'movieAdd'])->name("contents.movie.add");
-Route::get('/Dizi/Ekle', function(){ return view('Contents/serie'); })->name("contents.serie");
-Route::post('/Dizi/Ekle', [App\Http\Controllers\ContentController::class, 'serieAdd'])->name("contents.serie.add");
-Route::get('/Yazar/Ekle', function(){ return view('Contents/writer'); })->name("contents.writer");
-Route::post('/Yazar/Ekle', [App\Http\Controllers\ContentController::class, 'writerAdd'])->name("contents.writer.add");
-Route::get('/Aktor/Ekle', function(){ return view('Contents/actor'); })->name("contents.actor");
-Route::post('/Aktor/Ekle', [App\Http\Controllers\ContentController::class, 'actorAdd'])->name("contents.actor.add");
-Route::get('/Yonetmen/Ekle', function(){ return view('Contents/director'); })->name("contents.director");
-Route::post('/Yonetmen/Ekle', [App\Http\Controllers\ContentController::class, 'directorAdd'])->name("contents.director.add");
+Route::get('/Kitap/Ekle', function(){ return view('Content/book'); })->name("content.book");
+Route::post('/Kitap/Ekle', [App\Http\Controllers\ContentController::class, 'addBook'])->name("content.book.add");
+Route::get('/Film/Ekle', function(){ return view('Content/movie'); })->name("content.movie");
+Route::post('/Film/Ekle', [App\Http\Controllers\ContentController::class, 'addMovie'])->name("content.movie.add");
+Route::get('/Dizi/Ekle', function(){ return view('Content/serie'); })->name("content.serie");
+Route::post('/Dizi/Ekle', [App\Http\Controllers\ContentController::class, 'addSerie'])->name("content.serie.add");
+Route::get('/Yazar/Ekle', function(){ return view('Content/writer'); })->name("content.writer");
+Route::post('/Yazar/Ekle', [App\Http\Controllers\ContentController::class, 'addWriter'])->name("content.writer.add");
+Route::get('/Aktor/Ekle', function(){ return view('Content/actor'); })->name("content.actor");
+Route::post('/Aktor/Ekle', [App\Http\Controllers\ContentController::class, 'addActor'])->name("content.actor.add");
+Route::get('/Yonetmen/Ekle', function(){ return view('Content/director'); })->name("content.director");
+Route::post('/Yonetmen/Ekle', [App\Http\Controllers\ContentController::class, 'addDirector'])->name("content.director.add");
 // | İçerik Sayfaları-------------------------------------------------------------------------
 
 

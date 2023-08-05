@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string("email")->unique();
             $table->date("date");
             $table->string("password");
+            $table->bit("status")->default(1);
             $table->timestamps();
         });
     }
