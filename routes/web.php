@@ -14,9 +14,9 @@ Route::post('/', [App\Http\Controllers\UserController::class, 'userLoginRegister
 Route::get('/Profil/{username}', [App\Http\Controllers\UserController::class, 'userProfile'])->name("profile.index");
 // | Profil Sayfası---------------------------------------------------------------------------
 
-// | Kitap İşlemleri--------------------------------------------------------------------------
-Route::get('/Kitaplar', function(){ return view('Books/index'); })->name("books.index");
-// | Kitap İşlemleri--------------------------------------------------------------------------
+// | Sayfalar---------------------------------------------------------------------------------
+Route::get('/Kitaplar', [App\Http\Controllers\ContentController::class, 'indexBook'])->name("books.index");
+// | Sayfalar---------------------------------------------------------------------------------
 
 // | Ayarlar Sayfası--------------------------------------------------------------------------
 Route::get('/Ayarlar', [App\Http\Controllers\UserController::class, 'userSettings'])->name("settings.index");

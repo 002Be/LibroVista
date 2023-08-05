@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string("name")->unique();
             $table->string("slug")->unique();
-            $table->string("about");
+            $table->longText("about");
             $table->string("category");
             $table->string("image");
             $table->integer("page");
@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date("releaseYear");
             $table->float("score");
             $table->float("rating");
+            $table->int("likes");
             $table->string("addPerson");
             $table->bit("status")->default(0);
             $table->timestamps();
