@@ -1,7 +1,7 @@
 <h1 style="text-align:center;">LibroVista</h1>
 LibroVista, kitap, dizi, film, aktörler, yazarlar ve yönetmenleri inceleyebileceğiniz, kullanıcıların kendi içeriklerini paylaşabileceği, favori eserlerini ve izledikleri film ve dizileri listelerine ekleyebileceği, diğer kullanıcılarla etkileşimde bulunabileceği, takip edip takipçi kazanabileceği ve mesajlaşabileceği bir sosyal ağ platformudur.
 
-## Ana Özellikler:
+## Ana Özellikleri
 
 **Kayıt ve Profil Yönetimi:** Kullanıcılar, temel bilgileri ve ilgi alanları doğrultusunda ücretsiz olarak LibroVista'ya kayıt olabilirler. Kayıt sonrasında profil oluşturabilir ve kendi fotoğraflarını ekleyebilirler.
 
@@ -15,10 +15,10 @@ LibroVista, kitap, dizi, film, aktörler, yazarlar ve yönetmenleri inceleyebile
 
 **Mesajlaşma ve Etkileşim:** Kullanıcılar, birbirleriyle özel mesajlar aracılığıyla iletişim kurabilir ve tartışmalar yapabilirler. Ayrıca yorumlar ve beğenilerle paylaşımlara geri bildirimde bulunabilirler.
 
+## Bilgilendirme
 LibroVista, kitap ve film tutkunlarının buluşma noktası haline gelerek, insanların ortak ilgi alanlarına sahip insanlarla bağlantı kurmalarını, yeni eserler keşfetmelerini ve deneyimlerini paylaşmalarını sağlayan samimi bir topluluk oluşturmayı amaçlamaktadır.
 
-## Bilgilendirme
-Sayfalar...Projenin ilerleyen vakitlerinde eklenecektir
+    Sayfalar...Projenin ilerleyen vakitlerinde eklenecektir
 
 ## Durum
 - **05.08.2023** | Klasör konumlarında değişiklik yapıldı. **Contents->Content**
