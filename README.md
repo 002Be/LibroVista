@@ -50,7 +50,7 @@ Proje kodunu yerel bilgisayarınıza klonlayarak "LibroVista" uygulamasını ça
 - Projeyi GitHub sayfanızdan veya komut satırından klonlayın: **git clone https://github.com/002Be/LibroVista.git**
 - Gerekli bağımlılıkları yüklemek için: **composer install**
 - .env dosyasını oluşturun ve gerekli ayarları yapılandırın: **cp .env.example .env**
-- Veritabanını oluşturun ve migre edin: **php artisan migrate**
+- Veritabanını oluşturun ve migrate edin: **php artisan migrate**
 - Uygulamayı çalıştırın: **php artisan serve**
 - Artık "LibroVista" projesi yerel bilgisayarınızda çalışıyor!
 
