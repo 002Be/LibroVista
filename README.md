@@ -1,5 +1,21 @@
 <h1 style="text-align:center;">LibroVista</h1>
-Hakkında...Projenin ilerleyen vakitlerinde eklenecektir
+LibroVista, kitap, dizi, film, aktörler, yazarlar ve yönetmenleri inceleyebileceğiniz, kullanıcıların kendi içeriklerini paylaşabileceği, favori eserlerini ve izledikleri film ve dizileri listelerine ekleyebileceği, diğer kullanıcılarla etkileşimde bulunabileceği, takip edip takipçi kazanabileceği ve mesajlaşabileceği bir sosyal ağ platformudur.
+
+## Ana Özellikler:
+
+**Kayıt ve Profil Yönetimi:** Kullanıcılar, temel bilgileri ve ilgi alanları doğrultusunda ücretsiz olarak LibroVista'ya kayıt olabilirler. Kayıt sonrasında profil oluşturabilir ve kendi fotoğraflarını ekleyebilirler.
+
+**Kitap, Dizi ve Film İncelemeleri:** Kullanıcılar, kütüphanelerindeki kitapları, izledikleri filmleri ve dizileri puanlayıp yorumlayabilirler. Bu incelemeler diğer kullanıcılar tarafından görülebilir ve beğeni ve yorum yapılabilir.
+
+**Favorilere Ekleme:** Kullanıcılar, sevdikleri kitapları, filmleri, dizileri, oyuncuları, yazarları ve yönetmenleri kolayca favoriye kaydedebilirler.
+
+**Listelere Ekleme:** Kullanıcılar, izledikleri filmleri ve dizileri, okudukları kitapları belirli listelere ekleyebilirler. Örneğin, "En İyi Bilim Kurgu Filmleri," "2010 Yapımı Kitaplar," "Favori Romantik Diziler" gibi listeler oluşturabilir ve bu listeleri diğer kullanıcılarla paylaşabilirler.
+
+**Takip ve Takipçi Sistemi:** Kullanıcılar, diğer kullanıcıları takip edebilir ve takipçi kazanabilirler. Bu sayede takip ettikleri kişilerin paylaşımlarını kolayca görebilirler.
+
+**Mesajlaşma ve Etkileşim:** Kullanıcılar, birbirleriyle özel mesajlar aracılığıyla iletişim kurabilir ve tartışmalar yapabilirler. Ayrıca yorumlar ve beğenilerle paylaşımlara geri bildirimde bulunabilirler.
+
+LibroVista, kitap ve film tutkunlarının buluşma noktası haline gelerek, insanların ortak ilgi alanlarına sahip insanlarla bağlantı kurmalarını, yeni eserler keşfetmelerini ve deneyimlerini paylaşmalarını sağlayan samimi bir topluluk oluşturmayı amaçlamaktadır.
 
 ## Bilgilendirme
 Sayfalar...Projenin ilerleyen vakitlerinde eklenecektir
