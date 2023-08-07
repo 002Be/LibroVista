@@ -456,7 +456,7 @@
 @endsection
 @section("rightBar")
 
-    <div class="card left-profile-card">
+    <div class="card left-profile-card" style="width: 350px;">
         <div class="card-body">
             <div class="text-center">
                 <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="user-profile">

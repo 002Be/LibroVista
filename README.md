@@ -18,10 +18,12 @@ LibroVista, kitap, dizi, film, aktörler, yazarlar ve yönetmenleri inceleyebile
 ## Bilgilendirme
 LibroVista, kitap ve film tutkunlarının buluşma noktası haline gelerek, insanların ortak ilgi alanlarına sahip insanlarla bağlantı kurmalarını, yeni eserler keşfetmelerini ve deneyimlerini paylaşmalarını sağlayan samimi bir topluluk oluşturmayı amaçlamaktadır.
 
-    Sayfalar...Projenin ilerleyen vakitlerinde eklenecektir
+## Sayfalar
+...Projenin ilerleyen vakitlerinde eklenecektir...
 
 ## Durum
-- **07.08.2023** | Projeye ara verildi.
+- **07.08.2023** | Kitap **single.blade.php** eklendi ve yarı etkin hale getirildi.
+- **07.08.2023** | Yönlendirme yapısı ve klasör konumları değiştirildi.
 - **05.08.2023** | Klasör konumlarında değişiklik yapıldı. **Contents->Content**
 - **05.08.2023** | Kitaplar sayfasında kitaplar belirli özelliklere göre listelendi.
 - **05.08.2023** | Kitap Ekle sayfası hazırlandı ve etkin hale getirildi.

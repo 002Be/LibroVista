@@ -1,5 +1,5 @@
 @extends("layouts.master")
-@section("title", "")
+@section("title", "Kitaplar")
 @section("css")
 
 <style>
@@ -24,7 +24,7 @@
 
 @foreach($books_1 as $book)
 <div class="d-flex flex-row mb-3">
-    <a href="#">
+    <a href="{{route('book.index',$book->slug)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
         </div>
@@ -32,7 +32,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="#" style="text-decoration: none; color:white;">
+                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">

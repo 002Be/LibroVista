@@ -1,6 +1,6 @@
 
             </div>
-            <div class="col-3" style="margin-top: 100px;">
+            <div class="col-2" style="margin-top: 100px;">
                 @yield("rightBar")
             </div>
         </div>
@@ -38,12 +38,12 @@
                 </div>
                 <div class="modal-body">
                     <a href="{{route('content.book')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Kitap Ekle</a>
-                    <a href="{{route('content.movie')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Film Ekle</a>
-                    <a href="{{route('content.serie')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Dizi Ekle</a>
-                    <a href="{{route('content.writer')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Yazar Ekle</a>
-                    <a href="{{route('content.actor')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Aktör Ekle</a>
-                    <a href="{{route('content.director')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Yönetmen Ekle</a>
-                    <a href="{{route('content.translator')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Çevirmen Ekle</a>
+                    <a href="{ {route('content.movie')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Film Ekle</a>
+                    <a href="{ {route('content.serie')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Dizi Ekle</a>
+                    <a href="{ {route('content.writer')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Yazar Ekle</a>
+                    <a href="{ {route('content.actor')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Aktör Ekle</a>
+                    <a href="{ {route('content.director')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Yönetmen Ekle</a>
+                    <a href="{ {route('content.translator')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Çevirmen Ekle</a>
                 </div>
             </div>
         </div>
