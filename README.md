@@ -21,6 +21,7 @@ LibroVista, kitap ve film tutkunlarının buluşma noktası haline gelerek, insa
     Sayfalar...Projenin ilerleyen vakitlerinde eklenecektir
 
 ## Durum
+- **07.08.2023** | Projeye ara verildi.
 - **05.08.2023** | Klasör konumlarında değişiklik yapıldı. **Contents->Content**
 - **05.08.2023** | Kitaplar sayfasında kitaplar belirli özelliklere göre listelendi.
 - **05.08.2023** | Kitap Ekle sayfası hazırlandı ve etkin hale getirildi.

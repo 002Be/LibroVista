@@ -68,6 +68,12 @@
                 Yönetmenler
                 </a>
             </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Çevirmenler
+                </a>
+            </li>
             <hr>
             <li>
                 <a href="{{route('page.contact')}}" class="nav-link text-white">

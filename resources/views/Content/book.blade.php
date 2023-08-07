@@ -38,6 +38,10 @@
                     <input name="writer" placeholder="Kitabın yazarı" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
+                    <label>Çevirmeni</label>
+                    <input name="writer" placeholder="Kitabın yazarı" type="text" class="form-control" style="background-color:dimgray;" required>
+                </div><br>
+                <div class="form-group">
                     <label>Yayın Evi</label>
                     <input name="publisher" placeholder="Kitabın yayın evi" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>

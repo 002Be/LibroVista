@@ -36,6 +36,8 @@ Route::get('/Aktor/Ekle', function(){ return view('Content/actor'); })->name("co
 Route::post('/Aktor/Ekle', [App\Http\Controllers\ContentController::class, 'addActor'])->name("content.actor.add");
 Route::get('/Yonetmen/Ekle', function(){ return view('Content/director'); })->name("content.director");
 Route::post('/Yonetmen/Ekle', [App\Http\Controllers\ContentController::class, 'addDirector'])->name("content.director.add");
+Route::get('/Cevirmen/Ekle', function(){ return view('Content/translator'); })->name("content.translator");
+Route::post('/Cevirmen/Ekle', [App\Http\Controllers\ContentController::class, 'addTranslator'])->name("content.translator.add");
 // | İçerik Sayfaları-------------------------------------------------------------------------
 
 

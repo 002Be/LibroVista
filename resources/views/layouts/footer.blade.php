@@ -43,6 +43,7 @@
                     <a href="{{route('content.writer')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Yazar Ekle</a>
                     <a href="{{route('content.actor')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Aktör Ekle</a>
                     <a href="{{route('content.director')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Yönetmen Ekle</a>
+                    <a href="{{route('content.translator')}}" class="btn w-100 btn-primary mb-3" style="background-color:#191a1f; border-color:dimgray;">Çevirmen Ekle</a>
                 </div>
             </div>
         </div>
