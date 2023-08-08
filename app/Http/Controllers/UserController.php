@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
+use App\Models\Book;
+use App\Models\Movie;
+use App\Models\Serie;
+use App\Models\Actor;
+use App\Models\Writer;
+use App\Models\Director;
+
 class UserController extends Controller
 {
     public function userLoginRegister(Request $request){
@@ -44,11 +51,21 @@ class UserController extends Controller
     public function userProfile($username){
         $users = User::where("username", $username)->get();
 
+
         $userData = User::select('data')->where('username', $username)->first();
         $json_data = $userData->data;
         $userData = json_decode($json_data, true);
 
-        return view("profile.index", compact("users","userData"));
+
+        $uAddBook = Book::where("addPerson", $username)->get();
+        $uAddMovie = Movie::where("addPerson", $username)->get();
+        $uAddSerie = Serie::where("addPerson", $username)->get();
+        $uAddActor = Actor::where("addPerson", $username)->get();
+        $uAddWriter = Writer::where("addPerson", $username)->get();
+        $uAddDirector = Director::where("addPerson", $username)->get();
+        $userAddContentsAll = [$uAddBook, $uAddMovie, $uAddSerie, $uAddActor, $uAddWriter, $uAddDirector];
+
+        return view("profile.index", compact("users","userData","userAddContentsAll"));
     }
 
     public function userSettings(){
