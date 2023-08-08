@@ -1,5 +1,5 @@
 @extends("layouts.master")
-@section("title", "Kitap - ".$director->name)
+@section("title", "Dizi - ".$serie->name)
 @section("content")
 
 
@@ -7,22 +7,47 @@
 <div class="card card-body mt-2" style="background-color:#191a1f;">
     <div style="display: flex;">
         <div>
-            <img src="/{{$director->image}}" width="300" height="450" alt="{{$director->name}}">
+            <img src="/{{$serie->image}}" width="300" height="450" alt="{{$serie->name}}">
         </div>
         <div class="m-4">
-            <div style="text-align: center;"><i class="bi bi-star"></i> {{$director->rating}} · <i class="bi bi-people"></i> 10</div><br>
-            Ad : {{$director->name}}
+            <div style="text-align: center;"><i class="bi bi-star"></i> {{$serie->rating}} · <i class="bi bi-people"></i> 10</div><br>
+            Ad : {{$serie->name}}
             <br>
-            Doğum tarihi : {{date('d-m-Y', strtotime($director->date))}} · {{$ageDirector}} yaşında.
+            Tür : 
+            @php 
+                $categoriesArray = explode(',', $serie->category); 
+                $categoriesCount = count($categoriesArray);
+            @endphp
+            @foreach($categoriesArray as $category)
+                @php $categoriesCount-- @endphp
+                <a href="#" style="text-decoration: none;">{{$category}}</a>@if($categoriesCount>0),@endif
+                
+            @endforeach
             <br>
-            Beğeni Sayısı : {{$director->likes}}
+            Çıkış Yılı : {{date('Y', strtotime($serie->releaseYear))}}
+            <br>
+            Sayfa Sayısı : {{$serie->page}}
+            <br><br>
+            @if(isset($serie->translator))
+                Çevirmen : {{$serie->translator}}
+                <br>
+            @endif
+            Yayın Evi : <a href="#" style="text-decoration: none;">{{$serie->publisher}}</a>
+            <br>
+            <hr>
+                <h6>Yazar</h6>
+                <img src="/{{$serie->image}}" width="40" height="40" style="border-radius:50%;" alt="{{$serie->name}}">
+                Adı : <a href="#" style="text-decoration: none;">{{$serie->writer}}</a>
+                <br>
+                Hakkında : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut iusto veritatis pariatur et sint minus nostrum quae, nemo qui culpa officia animi cumque ipsa ab possimus ipsum aspernatur doloremque sequi.
+            <br>
         </div>
     </div>
 </div>
 
 <!-- Kitabın özeti -->
 <div class="card card-body mt-2" style="background-color:#191a1f;">
-    <p>{{$director->about}}</p>
+    <p>{{$serie->about}}</p>
 </div>
 
 <!-- Kitap resmi ve bilgileri -->

@@ -29,7 +29,7 @@ class BookController extends Controller
         $book->writer = $request->writer;
         $book->addPerson = Auth::user()->username;
         $book->save();
-        toastr()->success("Kitab kaydı başarıyla gönderildi.","Başarılı");
+        toastr()->success("Kitap kaydı başarıyla gönderildi.","Başarılı");
         return redirect()->back();
     }
 

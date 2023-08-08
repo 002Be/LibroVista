@@ -11,11 +11,11 @@
             <input type="hidden" name="process" value="publicInfo">
                 <div class="form-group">
                     <label>Adı</label>
-                    <input name="name" placeholder="Kitapin adı" type="text" class="form-control" style="background-color:dimgray;" required>
+                    <input name="name" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
                     <label>Konusu</label>
-                    <textarea name="about" placeholder="Kitapin özeti" rows="10" class="form-control" style="background-color:dimgray;" required></textarea>
+                    <textarea name="about" rows="10" class="form-control" style="background-color:dimgray;" required></textarea>
                 </div><br>
                 <div class="form-group">
                     <label>Türü</label>
@@ -27,15 +27,15 @@
                 </div><br>
                 <div class="form-group">
                     <label>Sayfa Sayısı</label>
-                    <input name="page" placeholder="Kitapin sayfa sayısı" type="text" class="form-control" style="background-color:dimgray;" required>
+                    <input name="page" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
                     <label>Çıkış Yılı</label>
-                    <input name="releaseYear" placeholder="Kitapin " type="date" class="form-control" style="background-color:dimgray;" required>
+                    <input name="releaseYear" type="date" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
                     <label>Yazarı</label>
-                    <input name="writer" placeholder="Kitapin yazarı" type="text" class="form-control" style="background-color:dimgray;" required>
+                    <input name="writer" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked">

@@ -1,45 +1,49 @@
 @extends("layouts.master")
-@section("title", "Yazar Ekle")
+@section("title", "Film Ekle")
 @section("content")
 
 <div class="card" style="background-color:dimgray;">
     <div class="card-header">
-        <h5 class="card-title mb-0 text-white">Eklenecek Yazar Hakkında</h5>
+        <h5 class="card-title mb-0 text-white">Eklenecek Film Hakkında</h5>
     </div>
     <div class="card-body text-white">
-        <form method="POST" action="{{route('content.writer.add')}}" enctype="multipart/form-data"> @csrf
+        <form method="POST" action="{{route('content.movie.add')}}" enctype="multipart/form-data"> @csrf
             <input type="hidden" name="process" value="publicInfo">
                 <div class="form-group">
-                    <label>Adı Soyadı</label>
+                    <label>Adı</label>
                     <input name="name" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
-                    <label>Hayat Hikayesi</label>
-                    <textarea name="about" rows="10" class="form-control" style="background-color:dimgray;"></textarea>
+                    <label>Konusu</label>
+                    <textarea name="about" rows="10" class="form-control" style="background-color:dimgray;" required></textarea>
                 </div><br>
                 <div class="form-group">
-                    <label>Doğduğu Yer</label>
-                    <input name="birthplace" placeholder="Şehir, Ülke" type="text" class="form-control" style="background-color:dimgray;" required>
-                </div><br>
-                <div class="form-group">
-                    <label>Cinsiyeti</label>
-                    <input name="gender" type="text" class="form-control" style="background-color:dimgray;" required>
+                    <label>Türü</label>
+                    <input name="category" placeholder="Türler arası virgül(,) bırakın | aksiyon,bilim kurgu" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
                     <label>Resmi</label>
                     <input name="image" type="file" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
-                    <label>Doğum Tarihi</label>
-                    <input name="date" type="date" class="form-control" style="background-color:dimgray;" required>
+                    <label>Süresi</label>
+                    <input name="duration" type="text" class="form-control" style="background-color:dimgray;" required>
+                </div><br>
+                <div class="form-group">
+                    <label>Çıkış Yılı</label>
+                    <input name="releaseYear" type="date" class="form-control" style="background-color:dimgray;" required>
+                </div><br>
+                <div class="form-group">
+                    <label>Yönetmeni</label>
+                    <input name="director" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked">
-                        Yazar ekleme koşullarını okudum kabul ediyorum.
+                        Film ekleme koşullarını okudum kabul ediyorum.
                     </label>
                     <input class="form-check-input" type="checkbox" id="flexCheckChecked" required>
                 </div><br>
-            <button type="submit" class="btn btn-success w-100">Yazarı Ekle</button>
+            <button type="submit" class="btn btn-success w-100">Filmi Ekle</button>
         </form>
     </div>
 </div>
@@ -49,7 +53,7 @@
 
 <div style="background-color:dimgray;" class="card" style="position: fixed; width:300px">
     <div class="card-header">
-        <h5 class="card-title mb-0 text-center">Yazar Ekleme Kuralları</h5>
+        <h5 class="card-title mb-0 text-center">Film Ekleme Kuralları</h5>
     </div>
     <div class="list-group list-group-flush" role="tablist">
         <ul>

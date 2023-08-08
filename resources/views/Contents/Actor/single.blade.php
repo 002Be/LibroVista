@@ -13,7 +13,7 @@
             <div style="text-align: center;"><i class="bi bi-star"></i> {{$actor->rating}} · <i class="bi bi-people"></i> 10</div><br>
             Ad : {{$actor->name}}
             <br>
-            Doğum tarihi : {{date('d-m-Y', strtotime($actor->date))}} · {{$ageWriter}} yaşında.
+            Doğum tarihi : {{date('d-m-Y', strtotime($actor->date))}} · {{$ageActor}} yaşında.
             <br>
             Beğeni Sayısı : {{$actor->likes}}
         </div>

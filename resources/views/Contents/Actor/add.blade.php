@@ -19,11 +19,11 @@
                 </div><br>
                 <div class="form-group">
                     <label>Doğduğu Yer</label>
-                    <input name="birthplace" placeholder="Ülke, Şehir" type="text" class="form-control" style="background-color:dimgray;" required>
+                    <input name="birthplace" placeholder="Şehir, Ülke" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
                     <label>Cinsiyeti</label>
-                    <input name="gender" placeholder="Ülke, Şehir" type="text" class="form-control" style="background-color:dimgray;" required>
+                    <input name="gender" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
                     <label>Resmi</label>
@@ -31,7 +31,7 @@
                 </div><br>
                 <div class="form-group">
                     <label>Doğum Tarihi</label>
-                    <input name="date" placeholder="Filmin " type="date" class="form-control" style="background-color:dimgray;" required>
+                    <input name="date" type="date" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked">
@@ -39,7 +39,7 @@
                     </label>
                     <input class="form-check-input" type="checkbox" id="flexCheckChecked" required>
                 </div><br>
-            <button type="submit" class="btn btn-success w-100">Oyuncui Ekle</button>
+            <button type="submit" class="btn btn-success w-100">Oyuncuyu Ekle</button>
         </form>
     </div>
 </div>

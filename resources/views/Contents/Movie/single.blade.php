@@ -1,5 +1,5 @@
 @extends("layouts.master")
-@section("title", "Kitap - ".$director->name)
+@section("title", "Film - ".$movie->name)
 @section("content")
 
 
@@ -7,22 +7,47 @@
 <div class="card card-body mt-2" style="background-color:#191a1f;">
     <div style="display: flex;">
         <div>
-            <img src="/{{$director->image}}" width="300" height="450" alt="{{$director->name}}">
+            <img src="/{{$movie->image}}" width="300" height="450" alt="{{$movie->name}}">
         </div>
         <div class="m-4">
-            <div style="text-align: center;"><i class="bi bi-star"></i> {{$director->rating}} · <i class="bi bi-people"></i> 10</div><br>
-            Ad : {{$director->name}}
+            <div style="text-align: center;"><i class="bi bi-star"></i> {{$movie->rating}} · <i class="bi bi-people"></i> 10</div><br>
+            Ad : {{$movie->name}}
             <br>
-            Doğum tarihi : {{date('d-m-Y', strtotime($director->date))}} · {{$ageDirector}} yaşında.
+            Tür : 
+            @php 
+                $categoriesArray = explode(',', $movie->category); 
+                $categoriesCount = count($categoriesArray);
+            @endphp
+            @foreach($categoriesArray as $category)
+                @php $categoriesCount-- @endphp
+                <a href="#" style="text-decoration: none;">{{$category}}</a>@if($categoriesCount>0),@endif
+                
+            @endforeach
             <br>
-            Beğeni Sayısı : {{$director->likes}}
+            Çıkış Yılı : {{date('Y', strtotime($movie->releaseYear))}}
+            <br>
+            Sayfa Sayısı : {{$movie->page}}
+            <br><br>
+            @if(isset($movie->translator))
+                Çevirmen : {{$movie->translator}}
+                <br>
+            @endif
+            Yayın Evi : <a href="#" style="text-decoration: none;">{{$movie->publisher}}</a>
+            <br>
+            <hr>
+                <h6>Yazar</h6>
+                <img src="/{{$movie->image}}" width="40" height="40" style="border-radius:50%;" alt="{{$movie->name}}">
+                Adı : <a href="#" style="text-decoration: none;">{{$movie->writer}}</a>
+                <br>
+                Hakkında : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut iusto veritatis pariatur et sint minus nostrum quae, nemo qui culpa officia animi cumque ipsa ab possimus ipsum aspernatur doloremque sequi.
+            <br>
         </div>
     </div>
 </div>
 
 <!-- Kitabın özeti -->
 <div class="card card-body mt-2" style="background-color:#191a1f;">
-    <p>{{$director->about}}</p>
+    <p>{{$movie->about}}</p>
 </div>
 
 <!-- Kitap resmi ve bilgileri -->

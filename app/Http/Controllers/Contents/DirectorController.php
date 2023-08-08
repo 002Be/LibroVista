@@ -27,7 +27,7 @@ class DirectorController extends Controller
         $director->date = $request->date;
         $director->addPerson = Auth::user()->username;
         $director->save();
-        toastr()->success("Yazar kaydı başarıyla gönderildi.","Başarılı");
+        toastr()->success("Yönetmen kaydı başarıyla gönderildi.","Başarılı");
         return redirect()->back();
     }
 
