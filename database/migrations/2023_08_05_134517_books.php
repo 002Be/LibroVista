@@ -17,13 +17,12 @@ return new class extends Migration
             $table->string("image");
             $table->integer("page");
             $table->string("writer");
-            $table->string("publisher");
             $table->date("releaseYear");
             $table->float("score");
             $table->float("rating");
-            $table->int("likes");
+            $table->integer("likes");
             $table->string("addPerson");
-            $table->bit("status")->default(0);
+            $table->boolean("status")->default(0);
             $table->timestamps();
         });
     }

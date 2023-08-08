@@ -15,10 +15,10 @@
 
             <div class="row">
                 <div class="col-md-6 col-lg-4 mb-4">
-                <h6 class="mb-3 text-primary"><i class="far fa-paper-plane text-primary pe-2"></i>Basit bir soru?</h6>
+                <h6 class="mb-3 text-primary"><i class="far fa-paper-plane text-primary pe-2"></i>LibroVista nedir ve nasıl kayıt olabilirim?</h6>
                 <p>
                     <!-- <strong><u>Kesinlikle!</u></strong> -->
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptate dolore nisi porro cum asperiores corrupti quisquam dolorem? Perferendis ut facilis nihil alias a, architecto aperiam! Dolorem autem delectus accusantium?
+                    LibroVista, kitap, dizi, film, aktörler, yazarlar ve yönetmenler hakkında inceleme yapabileceğiniz, içerik paylaşabileceğiniz ve diğer kullanıcılarla etkileşimde bulunabileceğiniz bir sosyal platformdur. Kayıt olmak için ana sayfamızdaki "Kayıt Ol" veya "Hesap Oluştur" butonuna tıklayarak gerekli bilgileri doldurmanız yeterlidir.
                 </p>
                 </div>
 

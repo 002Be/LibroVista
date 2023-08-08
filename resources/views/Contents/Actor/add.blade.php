@@ -1,49 +1,45 @@
 @extends("layouts.master")
-@section("title", "Kitap Ekle")
+@section("title", "Oyuncu Ekle")
 @section("content")
 
 <div class="card" style="background-color:dimgray;">
     <div class="card-header">
-        <h5 class="card-title mb-0 text-white">Eklenecek Kitap Hakkında</h5>
+        <h5 class="card-title mb-0 text-white">Eklenecek Oyuncu Hakkında</h5>
     </div>
     <div class="card-body text-white">
-        <form method="POST" action="{{route('content.book.add')}}" enctype="multipart/form-data"> @csrf
+        <form method="POST" action="{{route('content.actor.add')}}" enctype="multipart/form-data"> @csrf
             <input type="hidden" name="process" value="publicInfo">
                 <div class="form-group">
-                    <label>Adı</label>
-                    <input name="name" placeholder="Kitapin adı" type="text" class="form-control" style="background-color:dimgray;" required>
+                    <label>Adı Soyadı</label>
+                    <input name="name" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
-                    <label>Konusu</label>
-                    <textarea name="about" placeholder="Kitapin özeti" rows="10" class="form-control" style="background-color:dimgray;" required></textarea>
+                    <label>Hayat Hikayesi</label>
+                    <textarea name="about" rows="10" class="form-control" style="background-color:dimgray;"></textarea>
                 </div><br>
                 <div class="form-group">
-                    <label>Türü</label>
-                    <input name="category" placeholder="Türler arası virgül(,) bırakın | aksiyon,bilim kurgu" type="text" class="form-control" style="background-color:dimgray;" required>
+                    <label>Doğduğu Yer</label>
+                    <input name="birthplace" placeholder="Ülke, Şehir" type="text" class="form-control" style="background-color:dimgray;" required>
+                </div><br>
+                <div class="form-group">
+                    <label>Cinsiyeti</label>
+                    <input name="gender" placeholder="Ülke, Şehir" type="text" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
                     <label>Resmi</label>
                     <input name="image" type="file" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-group">
-                    <label>Sayfa Sayısı</label>
-                    <input name="page" placeholder="Kitapin sayfa sayısı" type="text" class="form-control" style="background-color:dimgray;" required>
-                </div><br>
-                <div class="form-group">
-                    <label>Çıkış Yılı</label>
-                    <input name="releaseYear" placeholder="Kitapin " type="date" class="form-control" style="background-color:dimgray;" required>
-                </div><br>
-                <div class="form-group">
-                    <label>Yazarı</label>
-                    <input name="writer" placeholder="Kitapin yazarı" type="text" class="form-control" style="background-color:dimgray;" required>
+                    <label>Doğum Tarihi</label>
+                    <input name="date" placeholder="Filmin " type="date" class="form-control" style="background-color:dimgray;" required>
                 </div><br>
                 <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked">
-                        Kitap ekleme koşullarını okudum kabul ediyorum.
+                        Oyuncu ekleme koşullarını okudum kabul ediyorum.
                     </label>
                     <input class="form-check-input" type="checkbox" id="flexCheckChecked" required>
                 </div><br>
-            <button type="submit" class="btn btn-success w-100">Kitapi Ekle</button>
+            <button type="submit" class="btn btn-success w-100">Oyuncui Ekle</button>
         </form>
     </div>
 </div>
@@ -53,7 +49,7 @@
 
 <div style="background-color:dimgray;" class="card" style="position: fixed; width:300px">
     <div class="card-header">
-        <h5 class="card-title mb-0 text-center">Kitap Ekleme Kuralları</h5>
+        <h5 class="card-title mb-0 text-center">Oyuncu Ekleme Kuralları</h5>
     </div>
     <div class="list-group list-group-flush" role="tablist">
         <ul>

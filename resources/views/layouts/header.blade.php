@@ -33,6 +33,25 @@
             </li>
             <hr>
             <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Paylaşımlar
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                İncelemeler
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Alıntılar
+                </a>
+            </li>
+            <hr>
+            <li>
                 <a href="{{route('books.index')}}" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                 Kitaplar
@@ -51,27 +70,21 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="{{route('actors.index')}}" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                Aktörler
+                Oyuncular
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="{{route('writers.index')}}" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                 Yazarlar
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="{{route('directors.index')}}" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                 Yönetmenler
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                Çevirmenler
                 </a>
             </li>
             <hr>
@@ -110,7 +123,7 @@
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col">
-
+                    
                 </div>
                 <div class="col">
                     <form role="search">

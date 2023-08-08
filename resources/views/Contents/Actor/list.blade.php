@@ -1,5 +1,5 @@
 @extends("layouts.master")
-@section("title", "Kitaplar")
+@section("title", "Oyunculer")
 @section("css")
 
 <style>
@@ -12,7 +12,7 @@
 <div class="pt-4 mb-2 flex-row items-center pb-2 ">
     <div class="flex-1">
         <div style="float: left;">
-            <span class="text font-bold text-18">En Beğenilen Kitaplar</span>
+            <span class="text font-bold text-18">En Beğenilen Oyunculer</span>
         </div>
         <div style="text-align: right;">
             <a href="#" style="text-align: right;">
@@ -22,26 +22,26 @@
     </div>
 </div>
 
-@foreach($books_1 as $book)
+@foreach($actors_1 as $actor)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('book.index',$book->slug)}}">
+    <a href="{{route('actor.index',$actor->slug)}}">
         <div class="rounded overflow-hidden">
-            <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
+            <img loading="lazy" class="rwe" width="60" height="90" src="{{$actor->image}}" alt="{{$actor->name}}">
         </div>
     </a>
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
-                    <span>{{$book->name}}</span>
+                <a href="{{route('actor.index',$actor->slug)}}" style="text-decoration: none; color:white;">
+                    <span>{{$actor->name}}</span>
                 </a>
                 <div class="flex-row">
                     <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->writer}}</span>
+                        <span title="{{$actor->actor}}" aria-label="{{$actor->actor}}" class="text truncate text-15 hover:underline">{{$actor->actor}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
-                    <span> {{$book->rating}}/10 · {{$book->likes}} beğeni</span>
+                    <span> {{$actor->rating}}/10 · {{$actor->likes}} beğeni</span>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
 <div class="pt-4 mb-2 flex-row items-center pb-2 ">
     <div class="flex-1">
         <div style="float: left;">
-            <span class="text font-bold text-18">Yeni Çıkan Kitaplar</span>
+            <span class="text font-bold text-18">En Çok Okunan Oyunculer</span>
         </div>
         <div style="text-align: right;">
             <a href="#" style="text-align: right;">
@@ -62,26 +62,26 @@
         </div>
     </div>
 </div>
-@foreach($books_2 as $book)
+@foreach($actors_2 as $actor)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('book.index',$book->slug)}}">
+    <a href="{{route('actor.index',$actor->slug)}}">
         <div class="rounded overflow-hidden">
-            <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
+            <img loading="lazy" class="rwe" width="60" height="90" src="{{$actor->image}}" alt="{{$actor->name}}">
         </div>
     </a>
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
-                    <span>{{$book->name}}</span>
+                <a href="{{route('actor.index',$actor->slug)}}" style="text-decoration: none; color:white;">
+                    <span>{{$actor->name}}</span>
                 </a>
                 <div class="flex-row">
                     <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->writer}}</span>
+                        <span title="{{$actor->actor}}" aria-label="{{$actor->actor}}" class="text truncate text-15 hover:underline">{{$actor->actor}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
-                    <span> {{$book->rating}}/10 · {{$book->likes}} beğeni</span>
+                    <span> {{$actor->rating}}/10 · {{$actor->likes}} beğeni</span>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
 <div class="pt-4 mb-2 flex-row items-center pb-2 ">
     <div class="flex-1">
         <div style="float: left;">
-            <span class="text font-bold text-18">En Çok Okunan Kitaplar</span>
+            <span class="text font-bold text-18">En İyi Oyunculer</span>
         </div>
         <div style="text-align: right;">
             <a href="#" style="text-align: right;">
@@ -102,26 +102,26 @@
         </div>
     </div>
 </div>
-@foreach($books_3 as $book)
+@foreach($actors_3 as $actor)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('book.index',$book->slug)}}">
+        <a href="{{route('actor.index',$actor->slug)}}">
         <div class="rounded overflow-hidden">
-            <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
+            <img loading="lazy" class="rwe" width="60" height="90" src="{{$actor->image}}" alt="{{$actor->name}}">
         </div>
     </a>
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
-                    <span>{{$book->name}}</span>
+                <a href="{{route('actor.index',$actor->slug)}}" style="text-decoration: none; color:white;">
+                    <span>{{$actor->name}}</span>
                 </a>
                 <div class="flex-row">
                     <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->writer}}</span>
+                        <span title="{{$actor->actor}}" aria-label="{{$actor->actor}}" class="text truncate text-15 hover:underline">{{$actor->actor}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
-                    <span> {{$book->rating}}/10 · {{$book->likes}} beğeni</span>
+                    <span> {{$actor->rating}}/10 · {{$actor->likes}} beğeni</span>
                 </div>
             </div>
         </div>
@@ -133,7 +133,7 @@
 <div class="pt-4 mb-2 flex-row items-center pb-2 ">
     <div class="flex-1">
         <div style="float: left;">
-            <span class="text font-bold text-18">En İyi Kitaplar</span>
+            <span class="text font-bold text-18">Tüm Oyunculer</span>
         </div>
         <div style="text-align: right;">
             <a href="#" style="text-align: right;">
@@ -142,66 +142,26 @@
         </div>
     </div>
 </div>
-@foreach($books_4 as $book)
+@foreach($actors_4 as $actor)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('book.index',$book->slug)}}">
+        <a href="{{route('actor.index',$actor->slug)}}">
         <div class="rounded overflow-hidden">
-            <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
+            <img loading="lazy" class="rwe" width="60" height="90" src="{{$actor->image}}" alt="{{$actor->name}}">
         </div>
     </a>
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
-                    <span>{{$book->name}}</span>
+                <a href="{{route('actor.index',$actor->slug)}}" style="text-decoration: none; color:white;">
+                    <span>{{$actor->name}}</span>
                 </a>
                 <div class="flex-row">
                     <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->writer}}</span>
+                        <span title="{{$actor->actor}}" aria-label="{{$actor->actor}}" class="text truncate text-15 hover:underline">{{$actor->actor}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
-                    <span> {{$book->rating}}/10 · {{$book->likes}} beğeni</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endforeach
-
-<hr class="mt-5">
-<div class="pt-4 mb-2 flex-row items-center pb-2 ">
-    <div class="flex-1">
-        <div style="float: left;">
-            <span class="text font-bold text-18">Tüm Kitaplar</span>
-        </div>
-        <div style="text-align: right;">
-            <a href="#" style="text-align: right;">
-                <span style="text-align: right;">Tümünü Gör</span>
-            </a>
-        </div>
-    </div>
-</div>
-@foreach($books_5 as $book)
-<div class="d-flex flex-row mb-3">
-        <a href="{{route('book.index',$book->slug)}}">
-        <div class="rounded overflow-hidden">
-            <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
-        </div>
-    </a>
-    <div class="m-2">
-        <div class="flex-row">
-            <div class="flex-1">
-                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
-                    <span>{{$book->name}}</span>
-                </a>
-                <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->writer}}</span>
-                    </a>
-                </div>
-                <div class="flex-row">
-                    <span> {{$book->rating}}/10 · {{$book->likes}} beğeni</span>
+                    <span> {{$actor->rating}}/10 · {{$actor->likes}} beğeni</span>
                 </div>
             </div>
         </div>
@@ -224,7 +184,7 @@
         <p class="m-2"><a href="#" style="text-decoration: none; color:white;">Bilim Kurgu</a></p>
     </div>
     <div class="card-header">
-        <h5 class="card-title mb-0 text-center">Yazarlar</h5>
+        <h5 class="card-title mb-0 text-center">Oyunculer</h5>
     </div>
     <div class="list-group list-group-flush" role="tablist">
         <p class="m-2"><a href="#" style="text-decoration: none; color:white;">Aksiyon</a></p>
