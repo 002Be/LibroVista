@@ -22,6 +22,7 @@ LibroVista, kitap ve film tutkunlarının buluşma noktası haline gelerek, insa
 ...Projenin ilerleyen vakitlerinde eklenecektir...
 
 ## Durum
+- **08.08.2023** | Profil sayfası düzenlendi.
 - **08.08.2023** | Kitaplarda "Yayınevi" kaldırıldı.
 - **08.08.2023** | Yazar, yönetmen, oyuncu, film ve dizi için; ekle, görüntüle ve listeleme sayfaları eklendi ve yarı etkin hale getirildi.
 - **08.08.2023** | Çevirmen ekle, görüntüle ve listele sayfaları silindi.

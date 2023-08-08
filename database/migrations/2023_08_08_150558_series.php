@@ -18,9 +18,9 @@ return new class extends Migration
             $table->integer("season");
             $table->string("director");
             $table->date("releaseYear");
-            $table->float("score");
-            $table->float("rating");
-            $table->integer("likes");
+            $table->float("score")->default(0);
+            $table->float("rating")->default(0);
+            $table->integer("likes")->default(0);
             $table->string("addPerson");
             $table->boolean("status")->default(0);
             $table->timestamps();
