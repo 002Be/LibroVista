@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('HomePage');
-})->name("HomePage");
+Route::get('/', [App\Http\Controllers\MainController::class, 'indexPage'])->name("HomePage");
 
 // |Auth İşlemleri---------------------------------------------------------------------------
 Route::post('/', [App\Http\Controllers\UserController::class, 'userLoginRegister'])->name("userLoginRegister");

@@ -219,7 +219,7 @@
 
 @endsection
 @section("rightBar")
-<div class="card" style="position: fixed; width:300px">
+<div class="card hide-on-small-screen" style="position: fixed; width:300px">
     <div class="card-header">
         <h5 class="card-title mb-0">Ayarlar</h5>
     </div>

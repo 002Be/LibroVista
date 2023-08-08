@@ -1,12 +1,5 @@
 @extends("layouts.master")
 @section("title", "Yazarlar")
-@section("css")
-
-<style>
-
-</style>
-
-@endsection
 @section("content")
 
 <div class="pt-4 mb-2 flex-row items-center pb-2 ">
@@ -172,7 +165,7 @@
 @endsection
 @section("rightBar")
 
-<div style="background-color:dimgray;" class="card" style="position: fixed; width:300px">
+<div style="background-color:dimgray;" class="card hide-on-small-screen" style="position: fixed; width:300px">
     <div class="card-header">
         <h5 class="card-title mb-0 text-center">Kategoriler</h5>
     </div>
