@@ -49,7 +49,7 @@
                 <hr>
                     <h6>Yazar</h6>
                     <img src="/{{$book->getWriter->image}}" width="40" height="40" style="border-radius:50%;" alt="{{$book->getWriter->name}}">
-                    Adı : <a href="#" style="text-decoration: none;">{{$book->getWriter->name}}</a>
+                    Adı : <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none;">{{$book->getWriter->name}}</a>
                     <br>
                     {!!Str::limit($book->getWriter->about, 195)!!}
                 <br>

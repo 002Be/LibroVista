@@ -22,6 +22,9 @@ LibroVista, kitap ve film tutkunlarının buluşma noktası haline gelerek, insa
 ...Projenin ilerleyen vakitlerinde eklenecektir...
 
 ## Durum
+- **09.08.2023** | Listeleme sayfalarında ki içeriklerin linkleri etkin hale getirildi.
+- **09.08.2023** | Kitap, film ve dizi ekleme sayfalarında yönetmen ve yazarların kendi içlerinde karışmaması için ayar yapıldı.
+- **09.08.2023** | Ayarlarda hakkımda kısmının güncellenmesi etkin hale getirildi.
 - **08.08.2023** | Küçük ekranlarda rideBar kapatıldı.
 - **08.08.2023** | Profil sayfası düzenlendi.
 - **08.08.2023** | Kitaplarda "Yayınevi" kaldırıldı.

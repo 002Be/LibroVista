@@ -29,8 +29,8 @@
                     <span>{{$movie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$movie->writer}}" aria-label="{{$movie->writer}}" class="text truncate text-15 hover:underline">{{$movie->writer}}</span>
+                    <a href="{{route('director.index',$movie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                        <span title="{{$movie->getDirector->name}}" aria-label="{{$movie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$movie->getDirector->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -69,8 +69,8 @@
                     <span>{{$movie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$movie->writer}}" aria-label="{{$movie->writer}}" class="text truncate text-15 hover:underline">{{$movie->writer}}</span>
+                    <a href="{{route('director.index',$movie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                        <span title="{{$movie->getDirector->name}}" aria-label="{{$movie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$movie->getDirector->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -109,8 +109,8 @@
                     <span>{{$movie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$movie->writer}}" aria-label="{{$movie->writer}}" class="text truncate text-15 hover:underline">{{$movie->writer}}</span>
+                    <a href="{{route('director.index',$movie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                        <span title="{{$movie->getDirector->name}}" aria-label="{{$movie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$movie->getDirector->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -149,8 +149,8 @@
                     <span>{{$movie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$movie->writer}}" aria-label="{{$movie->writer}}" class="text truncate text-15 hover:underline">{{$movie->writer}}</span>
+                    <a href="{{route('director.index',$movie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                        <span title="{{$movie->getDirector->name}}" aria-label="{{$movie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$movie->getDirector->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -189,8 +189,8 @@
                     <span>{{$movie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$movie->writer}}" aria-label="{{$movie->writer}}" class="text truncate text-15 hover:underline">{{$movie->writer}}</span>
+                    <a href="{{route('director.index',$movie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                        <span title="{{$movie->getDirector->name}}" aria-label="{{$movie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$movie->getDirector->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">

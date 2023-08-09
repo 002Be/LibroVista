@@ -30,7 +30,7 @@
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
+                    <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
@@ -70,7 +70,7 @@
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
+                    <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
@@ -110,7 +110,7 @@
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
+                    <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
@@ -150,7 +150,7 @@
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
+                    <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
@@ -190,7 +190,7 @@
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
+                    <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>

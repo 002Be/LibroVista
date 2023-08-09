@@ -29,8 +29,8 @@
                     <span>{{$serie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$serie->writer}}" aria-label="{{$serie->writer}}" class="text truncate text-15 hover:underline">{{$serie->writer}}</span>
+                    <a href="{{route('director.index',$serie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                        <span title="{{$serie->getDirector->name}}" aria-label="{{$serie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$serie->getDirector->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -69,8 +69,8 @@
                     <span>{{$serie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$serie->writer}}" aria-label="{{$serie->writer}}" class="text truncate text-15 hover:underline">{{$serie->writer}}</span>
+                    <a href="{{route('director.index',$serie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                        <span title="{{$serie->getDirector->name}}" aria-label="{{$serie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$serie->getDirector->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -109,8 +109,8 @@
                     <span>{{$serie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$serie->writer}}" aria-label="{{$serie->writer}}" class="text truncate text-15 hover:underline">{{$serie->writer}}</span>
+                    <a href="{{route('director.index',$serie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                        <span title="{{$serie->getDirector->name}}" aria-label="{{$serie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$serie->getDirector->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -149,8 +149,8 @@
                     <span>{{$serie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$serie->writer}}" aria-label="{{$serie->writer}}" class="text truncate text-15 hover:underline">{{$serie->writer}}</span>
+                    <a href="{{route('director.index',$serie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                        <span title="{{$serie->getDirector->name}}" aria-label="{{$serie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$serie->getDirector->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -189,8 +189,8 @@
                     <span>{{$serie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$serie->writer}}" aria-label="{{$serie->writer}}" class="text truncate text-15 hover:underline">{{$serie->writer}}</span>
+                    <a href="{{route('director.index',$serie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                        <span title="{{$serie->getDirector->name}}" aria-label="{{$serie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$serie->getDirector->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
