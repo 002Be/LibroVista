@@ -6,10 +6,17 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Models\Director;
 use App\Models\Serie;
 
 class SerieController extends Controller
 {
+    //*
+    public function addSeriePage(){
+        $directors = Director::get();
+        return view("contents.serie.add", compact("directors"));
+    }
+
     //*
     public function addSerie(Request $request){
         $serie = new Serie;

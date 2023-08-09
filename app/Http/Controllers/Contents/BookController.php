@@ -7,10 +7,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Book;
+use App\Models\Writer;
 
 
 class BookController extends Controller
 {
+    //* Kitap ekleme sayfası
+    public function addBookPage(){
+        $writers = Writer::get();
+        return view("contents.book.add", compact("writers"));
+    }
+
     //* Kitap ekleme sayfası
     public function addBook(Request $request){
         $book = new Book;

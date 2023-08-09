@@ -16,6 +16,7 @@
 </div>
 
 @foreach($books_1 as $book)
+
 <div class="d-flex flex-row mb-3">
     <a href="{{route('book.index',$book->slug)}}">
         <div class="rounded overflow-hidden">
@@ -30,7 +31,7 @@
                 </a>
                 <div class="flex-row">
                     <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->writer}}</span>
+                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -70,7 +71,7 @@
                 </a>
                 <div class="flex-row">
                     <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->writer}}</span>
+                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -110,7 +111,7 @@
                 </a>
                 <div class="flex-row">
                     <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->writer}}</span>
+                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -150,7 +151,7 @@
                 </a>
                 <div class="flex-row">
                     <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->writer}}</span>
+                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">
@@ -190,7 +191,7 @@
                 </a>
                 <div class="flex-row">
                     <a href="#" style="text-decoration: none; color:white;">
-                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->writer}}</span>
+                        <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
                 <div class="flex-row">

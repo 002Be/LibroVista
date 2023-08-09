@@ -33,10 +33,10 @@ class WriterController extends Controller
 
     //* 
     public function indexWriters(){
-        $writers_1 = Writer::orderBy("likes","DESC")->take(10)->get(); //* En Beğenilen Yazarlar
-        $writers_2 = Writer::orderBy("likes","ASC")->take(10)->get(); //* En Çok Okunan Yazarlar
-        $writers_3 = Writer::orderBy("rating","DESC")->take(10)->get(); //* En İyi Yazarlar
-        $writers_4 = Writer::orderBy("created_at","DESC")->take(10)->get(); //* Tüm Yazarlar
+        $writers_1 = Writer::orderBy("likes","DESC")->take(10)->where('id', '!=', 1)->get(); //* En Beğenilen Yazarlar
+        $writers_2 = Writer::orderBy("likes","ASC")->take(10)->where('id', '!=', 1)->get(); //* En Çok Okunan Yazarlar
+        $writers_3 = Writer::orderBy("rating","DESC")->take(10)->where('id', '!=', 1)->get(); //* En İyi Yazarlar
+        $writers_4 = Writer::orderBy("created_at","DESC")->where('id', '!=', 1)->take(10)->get(); //* Tüm Yazarlar
 
         return view("contents.writer.list", compact("writers_1","writers_2","writers_3","writers_4"));
     }

@@ -1,5 +1,8 @@
 @extends("layouts.master")
 @section("title", "Kitap Ekle")
+@section("css")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.css"/>
+@endsection
 @section("content")
 
 <div class="card" style="background-color:dimgray;">
@@ -35,7 +38,14 @@
                 </div><br>
                 <div class="form-group">
                     <label>Yazarı</label>
-                    <input name="writer" type="text" class="form-control" style="background-color:dimgray;" required>
+                    <div class='form-control' style="background-color:dimgray;">
+                        <select name="writer" id="id_select2_example" style="width: 200px;" >
+                            <option selected disabled style="color:white;">Seçiniz</option required>
+                            @foreach($writers as $writer)
+                                <option value="{{$writer->id}}" data-img_src="/{{$writer->image}}">@if($writer->name=="-") --Listede Yok-- @else {{$writer->name}} @endif</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div><br>
                 <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked">
@@ -65,4 +75,25 @@
     </div>
 </div>
 
+@endsection
+@section("js")
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.js"></script>
+<script type="text/javascript">
+    function custom_template(obj){
+            var data = $(obj.element).data();
+            var text = $(obj.element).text();
+            if(data && data['img_src']){
+                img_src = data['img_src'];
+                template = $("<div><img src=\"" + img_src + "\" style=\"width:100%;height:170px;\"/><p style=\"font-weight: 250;font-size:14pt;text-align:center;color:black;\">" + text + "</p></div>");
+                return template;
+            }
+        }
+    var options = {
+        // 'templateSelection': custom_template,
+        'templateResult': custom_template,
+    }
+    $('#id_select2_example').select2(options);
+    $('.select2-container--default .select2-selection--single').css({'height': '30px'});
+</script>
 @endsection

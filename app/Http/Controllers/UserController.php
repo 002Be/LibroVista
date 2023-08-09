@@ -55,6 +55,7 @@ class UserController extends Controller
         $userData = User::select('data')->where('username', $username)->first();
         $json_data = $userData->data;
         $userData = json_decode($json_data, true);
+        $userData["biography"];
 
 
         $uAddBook = Book::where("addPerson", $username)->get();
@@ -85,7 +86,14 @@ class UserController extends Controller
             $user->name = $request->name;
             $user->username = $request->username;
             $user->date = $request->date;
+
+            $user->data = json_decode($user->data, true);
+            $user->data = collect($user->data)->merge([
+                'biography' => $request->biography,
+            ]);
+
             $user->save();
+
             toastr()->success("Bilgiler başarıyla değiştirildi","Başarılı");
             return redirect()->back();
 

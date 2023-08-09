@@ -25,13 +25,13 @@ Route::get("/PrivacyPolicy", function(){ return view("Others/PrivacyPolicy"); })
 // |Diğer Sayfalar---------------------------------------------------------------------------
 
 // |İçerik Ekleme Sayfaları------------------------------------------------------------------
-Route::get('/Ekle/Kitap', function(){ return view('Contents/Book/add'); })->name("content.book");
+Route::get('/Ekle/Kitap', [App\Http\Controllers\Contents\BookController::class, 'addBookPage'])->name("content.book");
 Route::post('/Ekle/Kitap', [App\Http\Controllers\Contents\BookController::class, 'addBook'])->name("content.book.add");
 
-Route::get('/Ekle/Film', function(){ return view('Contents/Movie/add'); })->name("content.movie");
+Route::get('/Ekle/Film', [App\Http\Controllers\Contents\MovieController::class, 'addMoviePage'])->name("content.movie");
 Route::post('/Ekle/Film', [App\Http\Controllers\Contents\MovieController::class, 'addMovie'])->name("content.movie.add");
 
-Route::get('/Ekle/Dizi', function(){ return view('Contents/Serie/add'); })->name("content.serie");
+Route::get('/Ekle/Dizi', [App\Http\Controllers\Contents\SerieController::class, 'addSeriePage'])->name("content.serie");
 Route::post('/Ekle/Dizi', [App\Http\Controllers\Contents\SerieController::class, 'addSerie'])->name("content.serie.add");
 
 Route::get('/Ekle/Yazar', function(){ return view('Contents/Writer/add'); })->name("content.writer");

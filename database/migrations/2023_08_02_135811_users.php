@@ -15,6 +15,8 @@ return new class extends Migration
             $table->string("email")->unique();
             $table->date("date");
             $table->string("password");
+            $table->json("data");
+            $table->tinyText("biography");
             $table->bit("status")->default(1);
             $table->timestamps();
         });

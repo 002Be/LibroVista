@@ -33,10 +33,10 @@ class DirectorController extends Controller
 
     //* 
     public function indexDirectors(){
-        $directors_1 = Director::orderBy("likes","DESC")->take(10)->get(); //* En Beğenilen Yazarlar
-        $directors_2 = Director::orderBy("likes","ASC")->take(10)->get(); //* En Çok Okunan Yazarlar
-        $directors_3 = Director::orderBy("rating","DESC")->take(10)->get(); //* En İyi Yazarlar
-        $directors_4 = Director::orderBy("created_at","DESC")->take(10)->get(); //* Tüm Yazarlar
+        $directors_1 = Director::orderBy("likes","DESC")->take(10)->where('id', '!=', 1)->get(); //* En Beğenilen Yazarlar
+        $directors_2 = Director::orderBy("likes","ASC")->take(10)->where('id', '!=', 1)->get(); //* En Çok Okunan Yazarlar
+        $directors_3 = Director::orderBy("rating","DESC")->take(10)->where('id', '!=', 1)->get(); //* En İyi Yazarlar
+        $directors_4 = Director::orderBy("created_at","DESC")->where('id', '!=', 1)->take(10)->get(); //* Tüm Yazarlar
 
         return view("contents.director.list", compact("directors_1","directors_2","directors_3","directors_4"));
     }

@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    use HasFactory;
+    public function getWriter(){
+        return $this->hasOne("App\Models\Writer","id","writer");
+    }
 }

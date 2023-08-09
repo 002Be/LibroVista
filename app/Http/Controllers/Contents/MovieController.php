@@ -6,10 +6,17 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Models\Director;
 use App\Models\Movie;
 
 class MovieController extends Controller
 {
+    //*
+    public function addMoviePage(){
+        $directors = Director::get();
+        return view("contents.movie.add", compact("directors"));
+    }
+
     //*
     public function addMovie(Request $request){
         $movie = new Movie;

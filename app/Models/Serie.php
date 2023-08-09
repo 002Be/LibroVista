@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Serie extends Model
 {
-    use HasFactory;
+    public function getDirector(){
+        return $this->hasOne("App\Models\Director","id","director");
+    }
 }
