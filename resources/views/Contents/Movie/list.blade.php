@@ -17,7 +17,7 @@
 
 @foreach($movies_1 as $movie)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('movie.index',$movie->slug)}}">
+    <a href="{{route('movie.index',$movie->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$movie->image}}" alt="{{$movie->name}}">
         </div>
@@ -25,11 +25,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('movie.index',$movie->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('movie.index',$movie->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$movie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('director.index',$movie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('director.index',$movie->getDirector->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$movie->getDirector->name}}" aria-label="{{$movie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$movie->getDirector->name}}</span>
                     </a>
                 </div>
@@ -57,7 +57,7 @@
 </div>
 @foreach($movies_2 as $movie)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('movie.index',$movie->slug)}}">
+    <a href="{{route('movie.index',$movie->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$movie->image}}" alt="{{$movie->name}}">
         </div>
@@ -65,11 +65,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('movie.index',$movie->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('movie.index',$movie->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$movie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('director.index',$movie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('director.index',$movie->getDirector->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$movie->getDirector->name}}" aria-label="{{$movie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$movie->getDirector->name}}</span>
                     </a>
                 </div>
@@ -97,7 +97,7 @@
 </div>
 @foreach($movies_3 as $movie)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('movie.index',$movie->slug)}}">
+        <a href="{{route('movie.index',$movie->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$movie->image}}" alt="{{$movie->name}}">
         </div>
@@ -105,11 +105,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('movie.index',$movie->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('movie.index',$movie->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$movie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('director.index',$movie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('director.index',$movie->getDirector->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$movie->getDirector->name}}" aria-label="{{$movie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$movie->getDirector->name}}</span>
                     </a>
                 </div>
@@ -137,7 +137,7 @@
 </div>
 @foreach($movies_4 as $movie)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('movie.index',$movie->slug)}}">
+        <a href="{{route('movie.index',$movie->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$movie->image}}" alt="{{$movie->name}}">
         </div>
@@ -145,11 +145,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('movie.index',$movie->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('movie.index',$movie->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$movie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('director.index',$movie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('director.index',$movie->getDirector->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$movie->getDirector->name}}" aria-label="{{$movie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$movie->getDirector->name}}</span>
                     </a>
                 </div>
@@ -177,7 +177,7 @@
 </div>
 @foreach($movies_5 as $movie)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('movie.index',$movie->slug)}}">
+        <a href="{{route('movie.index',$movie->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$movie->image}}" alt="{{$movie->name}}">
         </div>
@@ -185,11 +185,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('movie.index',$movie->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('movie.index',$movie->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$movie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('director.index',$movie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('director.index',$movie->getDirector->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$movie->getDirector->name}}" aria-label="{{$movie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$movie->getDirector->name}}</span>
                     </a>
                 </div>

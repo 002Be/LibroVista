@@ -17,7 +17,7 @@
 
 @foreach($actors_1 as $actor)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('actor.index',$actor->slug)}}">
+    <a href="{{route('actor.index',$actor->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$actor->image}}" alt="{{$actor->name}}">
         </div>
@@ -25,7 +25,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('actor.index',$actor->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('actor.index',$actor->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$actor->name}}</span>
                 </a>
                 <div class="flex-row">
@@ -57,7 +57,7 @@
 </div>
 @foreach($actors_2 as $actor)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('actor.index',$actor->slug)}}">
+    <a href="{{route('actor.index',$actor->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$actor->image}}" alt="{{$actor->name}}">
         </div>
@@ -65,7 +65,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('actor.index',$actor->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('actor.index',$actor->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$actor->name}}</span>
                 </a>
                 <div class="flex-row">
@@ -97,7 +97,7 @@
 </div>
 @foreach($actors_3 as $actor)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('actor.index',$actor->slug)}}">
+        <a href="{{route('actor.index',$actor->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$actor->image}}" alt="{{$actor->name}}">
         </div>
@@ -105,7 +105,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('actor.index',$actor->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('actor.index',$actor->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$actor->name}}</span>
                 </a>
                 <div class="flex-row">
@@ -137,7 +137,7 @@
 </div>
 @foreach($actors_4 as $actor)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('actor.index',$actor->slug)}}">
+        <a href="{{route('actor.index',$actor->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$actor->image}}" alt="{{$actor->name}}">
         </div>
@@ -145,7 +145,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('actor.index',$actor->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('actor.index',$actor->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$actor->name}}</span>
                 </a>
                 <div class="flex-row">

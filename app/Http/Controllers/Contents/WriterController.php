@@ -42,8 +42,8 @@ class WriterController extends Controller
     }
 
     //* 
-    public function indexWriter($slug){
-        $writer = Writer::where("slug",$slug)->first();
+    public function indexWriter($id){
+        $writer = Writer::where("id",$id)->first();
 
         $writerDate = $writer->date;
         $birthDate = Carbon::createFromFormat('Y-m-d', $writerDate);

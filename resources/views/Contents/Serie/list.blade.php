@@ -17,7 +17,7 @@
 
 @foreach($series_1 as $serie)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('serie.index',$serie->slug)}}">
+    <a href="{{route('serie.index',$serie->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$serie->image}}" alt="{{$serie->name}}">
         </div>
@@ -25,11 +25,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('serie.index',$serie->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('serie.index',$serie->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$serie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('director.index',$serie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('director.index',$serie->getDirector->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$serie->getDirector->name}}" aria-label="{{$serie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$serie->getDirector->name}}</span>
                     </a>
                 </div>
@@ -57,7 +57,7 @@
 </div>
 @foreach($series_2 as $serie)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('serie.index',$serie->slug)}}">
+    <a href="{{route('serie.index',$serie->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$serie->image}}" alt="{{$serie->name}}">
         </div>
@@ -65,11 +65,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('serie.index',$serie->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('serie.index',$serie->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$serie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('director.index',$serie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('director.index',$serie->getDirector->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$serie->getDirector->name}}" aria-label="{{$serie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$serie->getDirector->name}}</span>
                     </a>
                 </div>
@@ -97,7 +97,7 @@
 </div>
 @foreach($series_3 as $serie)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('serie.index',$serie->slug)}}">
+        <a href="{{route('serie.index',$serie->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$serie->image}}" alt="{{$serie->name}}">
         </div>
@@ -105,11 +105,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('serie.index',$serie->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('serie.index',$serie->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$serie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('director.index',$serie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('director.index',$serie->getDirector->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$serie->getDirector->name}}" aria-label="{{$serie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$serie->getDirector->name}}</span>
                     </a>
                 </div>
@@ -137,7 +137,7 @@
 </div>
 @foreach($series_4 as $serie)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('serie.index',$serie->slug)}}">
+        <a href="{{route('serie.index',$serie->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$serie->image}}" alt="{{$serie->name}}">
         </div>
@@ -145,11 +145,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('serie.index',$serie->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('serie.index',$serie->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$serie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('director.index',$serie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('director.index',$serie->getDirector->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$serie->getDirector->name}}" aria-label="{{$serie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$serie->getDirector->name}}</span>
                     </a>
                 </div>
@@ -177,7 +177,7 @@
 </div>
 @foreach($series_5 as $serie)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('serie.index',$serie->slug)}}">
+        <a href="{{route('serie.index',$serie->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$serie->image}}" alt="{{$serie->name}}">
         </div>
@@ -185,11 +185,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('serie.index',$serie->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('serie.index',$serie->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$serie->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('director.index',$serie->getDirector->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('director.index',$serie->getDirector->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$serie->getDirector->name}}" aria-label="{{$serie->getDirector->name}}" class="text truncate text-15 hover:underline">{{$serie->getDirector->name}}</span>
                     </a>
                 </div>

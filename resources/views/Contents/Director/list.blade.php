@@ -17,7 +17,7 @@
 
 @foreach($directors_1 as $director)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('director.index',$director->slug)}}">
+    <a href="{{route('director.index',$director->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$director->image}}" alt="{{$director->name}}">
         </div>
@@ -25,7 +25,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('director.index',$director->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('director.index',$director->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$director->name}}</span>
                 </a>
                 <div class="flex-row">
@@ -57,7 +57,7 @@
 </div>
 @foreach($directors_2 as $director)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('director.index',$director->slug)}}">
+    <a href="{{route('director.index',$director->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$director->image}}" alt="{{$director->name}}">
         </div>
@@ -65,7 +65,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('director.index',$director->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('director.index',$director->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$director->name}}</span>
                 </a>
                 <div class="flex-row">
@@ -97,7 +97,7 @@
 </div>
 @foreach($directors_3 as $director)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('director.index',$director->slug)}}">
+        <a href="{{route('director.index',$director->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$director->image}}" alt="{{$director->name}}">
         </div>
@@ -105,7 +105,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('director.index',$director->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('director.index',$director->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$director->name}}</span>
                 </a>
                 <div class="flex-row">
@@ -137,7 +137,7 @@
 </div>
 @foreach($directors_4 as $director)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('director.index',$director->slug)}}">
+        <a href="{{route('director.index',$director->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$director->image}}" alt="{{$director->name}}">
         </div>
@@ -145,7 +145,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('director.index',$director->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('director.index',$director->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$director->name}}</span>
                 </a>
                 <div class="flex-row">

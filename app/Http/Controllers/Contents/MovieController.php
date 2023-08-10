@@ -51,8 +51,8 @@ class MovieController extends Controller
     }
 
     //*
-    public function indexMovie($slug){
-        $movie = Movie::where("slug",$slug)->first();
+    public function indexMovie($id){
+        $movie = Movie::where("id",$id)->first();
 
         return view("contents.movie.single", compact("movie"));
     }

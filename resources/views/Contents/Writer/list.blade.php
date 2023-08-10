@@ -17,7 +17,7 @@
 
 @foreach($writers_1 as $writer)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('writer.index',$writer->slug)}}">
+    <a href="{{route('writer.index',$writer->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$writer->image}}" alt="{{$writer->name}}">
         </div>
@@ -25,7 +25,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('writer.index',$writer->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('writer.index',$writer->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$writer->name}}</span>
                 </a>
                 <div class="flex-row">
@@ -57,7 +57,7 @@
 </div>
 @foreach($writers_2 as $writer)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('writer.index',$writer->slug)}}">
+    <a href="{{route('writer.index',$writer->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$writer->image}}" alt="{{$writer->name}}">
         </div>
@@ -65,7 +65,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('writer.index',$writer->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('writer.index',$writer->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$writer->name}}</span>
                 </a>
                 <div class="flex-row">
@@ -97,7 +97,7 @@
 </div>
 @foreach($writers_3 as $writer)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('writer.index',$writer->slug)}}">
+        <a href="{{route('writer.index',$writer->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$writer->image}}" alt="{{$writer->name}}">
         </div>
@@ -105,7 +105,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('writer.index',$writer->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('writer.index',$writer->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$writer->name}}</span>
                 </a>
                 <div class="flex-row">
@@ -137,7 +137,7 @@
 </div>
 @foreach($writers_4 as $writer)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('writer.index',$writer->slug)}}">
+        <a href="{{route('writer.index',$writer->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$writer->image}}" alt="{{$writer->name}}">
         </div>
@@ -145,7 +145,7 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('writer.index',$writer->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('writer.index',$writer->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$writer->name}}</span>
                 </a>
                 <div class="flex-row">

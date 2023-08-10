@@ -6,8 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Models\Book;
 use App\Models\Writer;
+use App\Models\Book;
+use App\Models\User;
 
 
 class BookController extends Controller
@@ -52,8 +53,8 @@ class BookController extends Controller
     }
 
     //* Kitap sayfası
-    public function indexBook($slug){
-        $book = Book::where("slug",$slug)->first();
+    public function indexBook($id){
+        $book = Book::where("id",$id)->first();
 
         return view("contents.book.single", compact("book"));
     }
@@ -61,5 +62,89 @@ class BookController extends Controller
     //* Kitabı sil
     public function deleteBook(Request $request){
         
+    }
+
+    public function islemTakipEt($id,$name,$slug){
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $newFollowedBook = [ // Yeni takip edilen kitabın bilgilerini oluşturun
+            "id" => $id,
+            "name" => $name,
+            "slug" => $slug
+        ];
+        $userData['followed_books'][] = $newFollowedBook; // "followed_books" içine yeni kitabı ekleyin
+        $user->data = json_encode($userData); // JSON verisini güncelle
+        $user->save(); // Kullanıcıyı kaydet
+        return redirect()->back();
+    }
+
+    public function islemFavorilereEkle($id,$name,$slug){
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $newFollowedBook = [ // Yeni takip edilen kitabın bilgilerini oluşturun
+            "id" => $id,
+            "name" => $name,
+            "slug" => $slug
+        ];
+        $userData['favorite_books'][] = $newFollowedBook; // "favorite_books" içine yeni kitabı ekleyin
+        $user->data = json_encode($userData); // JSON verisini güncelle
+        $user->save(); // Kullanıcıyı kaydet
+        return redirect()->back();
+    }
+
+    public function islemOkunacak($id,$name,$slug){
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $newFollowedBook = [ // Yeni takip edilen kitabın bilgilerini oluşturun
+            "id" => $id,
+            "name" => $name,
+            "slug" => $slug
+        ];
+        $userData['books_to_read'][] = $newFollowedBook; // "followed_books" içine yeni kitabı ekleyin
+        $user->data = json_encode($userData); // JSON verisini güncelle
+        $user->save(); // Kullanıcıyı kaydet
+        return redirect()->back();
+    }
+
+    public function islemOkudum($id,$name,$slug){
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $newFollowedBook = [ // Yeni takip edilen kitabın bilgilerini oluşturun
+            "id" => $id,
+            "name" => $name,
+            "slug" => $slug
+        ];
+        $userData['books_finished'][] = $newFollowedBook; // "followed_books" içine yeni kitabı ekleyin
+        $user->data = json_encode($userData); // JSON verisini güncelle
+        $user->save(); // Kullanıcıyı kaydet
+        return redirect()->back();
+    }
+
+    public function islemBiraktim($id,$name,$slug){
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $newFollowedBook = [ // Yeni takip edilen kitabın bilgilerini oluşturun
+            "id" => $id,
+            "name" => $name,
+            "slug" => $slug
+        ];
+        $userData['books_dropped'][] = $newFollowedBook; // "followed_books" içine yeni kitabı ekleyin
+        $user->data = json_encode($userData); // JSON verisini güncelle
+        $user->save(); // Kullanıcıyı kaydet
+        return redirect()->back();
+    }
+
+    public function islemOkunan($id,$name,$slug){
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $newFollowedBook = [ // Yeni takip edilen kitabın bilgilerini oluşturun
+            "id" => $id,
+            "name" => $name,
+            "slug" => $slug
+        ];
+        $userData['books_read'][] = $newFollowedBook; // "followed_books" içine yeni kitabı ekleyin
+        $user->data = json_encode($userData); // JSON verisini güncelle
+        $user->save(); // Kullanıcıyı kaydet
+        return redirect()->back();
     }
 }

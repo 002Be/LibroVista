@@ -42,8 +42,8 @@ class ActorController extends Controller
     }
 
     //* 
-    public function indexActor($slug){
-        $actor = Actor::where("slug",$slug)->first();
+    public function indexActor($id){
+        $actor = Actor::where("id",$id)->first();
 
         $actorDate = $actor->date;
         $birthDate = Carbon::createFromFormat('Y-m-d', $actorDate);

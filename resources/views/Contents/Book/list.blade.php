@@ -18,7 +18,7 @@
 @foreach($books_1 as $book)
 
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('book.index',$book->slug)}}">
+    <a href="{{route('book.index',$book->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
         </div>
@@ -26,11 +26,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('book.index',$book->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('writer.index',$book->getWriter->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
@@ -58,7 +58,7 @@
 </div>
 @foreach($books_2 as $book)
 <div class="d-flex flex-row mb-3">
-    <a href="{{route('book.index',$book->slug)}}">
+    <a href="{{route('book.index',$book->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
         </div>
@@ -66,11 +66,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('book.index',$book->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('writer.index',$book->getWriter->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
@@ -98,7 +98,7 @@
 </div>
 @foreach($books_3 as $book)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('book.index',$book->slug)}}">
+        <a href="{{route('book.index',$book->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
         </div>
@@ -106,11 +106,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('book.index',$book->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('writer.index',$book->getWriter->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
@@ -138,7 +138,7 @@
 </div>
 @foreach($books_4 as $book)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('book.index',$book->slug)}}">
+        <a href="{{route('book.index',$book->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
         </div>
@@ -146,11 +146,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('book.index',$book->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('writer.index',$book->getWriter->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>
@@ -178,7 +178,7 @@
 </div>
 @foreach($books_5 as $book)
 <div class="d-flex flex-row mb-3">
-        <a href="{{route('book.index',$book->slug)}}">
+        <a href="{{route('book.index',$book->id)}}">
         <div class="rounded overflow-hidden">
             <img loading="lazy" class="rwe" width="60" height="90" src="{{$book->image}}" alt="{{$book->name}}">
         </div>
@@ -186,11 +186,11 @@
     <div class="m-2">
         <div class="flex-row">
             <div class="flex-1">
-                <a href="{{route('book.index',$book->slug)}}" style="text-decoration: none; color:white;">
+                <a href="{{route('book.index',$book->id)}}" style="text-decoration: none; color:white;">
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
-                    <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none; color:white;">
+                    <a href="{{route('writer.index',$book->getWriter->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
                 </div>

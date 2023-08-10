@@ -13,10 +13,15 @@
             <div class="d-flex justify-content-end">
                 <button type="button" class="btn btn-danger" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sliders2-vertical"></i></button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Takip Et</a></li>
-                    <li><a class="dropdown-item" href="#">Favorilere Ekle</a></li>
-                    <li><a class="dropdown-item" href="#">Okunacak/Okudum/Bıraktım</a></li>
+                    <li><a class="dropdown-item" href="{{route('book.islem.TakipEt',[$book->id,$book->name,$book->id])}}">Takip Et</a></li>
+                    <li><a class="dropdown-item" href="{{route('book.islem.FavorilereEkle',[$book->id,$book->name,$book->id])}}">Favorilere Ekle</a></li>
                     <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{route('book.islem.Okunacak',[$book->id,$book->name,$book->id])}}">Okunacak</a></li>
+                    <li><a class="dropdown-item" href="{{route('book.islem.Okunan',[$book->id,$book->name,$book->id])}}">Okuyorum</a></li>
+                    <li><a class="dropdown-item" href="{{route('book.islem.Okudum',[$book->id,$book->name,$book->id])}}">Okudum</a></li>
+                    <li><a class="dropdown-item" href="{{route('book.islem.Biraktim',[$book->id,$book->name,$book->id])}}">Bıraktım</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Düzeltme Öner</a></li>
                     <li><a class="dropdown-item" href="#">Şikayet Et</a></li>
                 </ul>
             </div>
@@ -49,7 +54,7 @@
                 <hr>
                     <h6>Yazar</h6>
                     <img src="/{{$book->getWriter->image}}" width="40" height="40" style="border-radius:50%;" alt="{{$book->getWriter->name}}">
-                    Adı : <a href="{{route('writer.index',$book->getWriter->slug)}}" style="text-decoration: none;">{{$book->getWriter->name}}</a>
+                    Adı : <a href="{{route('writer.index',$book->getWriter->id)}}" style="text-decoration: none;">{{$book->getWriter->name}}</a>
                     <br>
                     {!!Str::limit($book->getWriter->about, 195)!!}
                 <br>

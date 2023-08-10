@@ -51,12 +51,10 @@ class UserController extends Controller
     public function userProfile($username){
         $users = User::where("username", $username)->get();
 
-
         $userData = User::select('data')->where('username', $username)->first();
         $json_data = $userData->data;
         $userData = json_decode($json_data, true);
         $userData["biography"];
-
 
         $uAddBook = Book::where("addPerson", $username)->get();
         $uAddMovie = Movie::where("addPerson", $username)->get();

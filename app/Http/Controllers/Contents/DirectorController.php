@@ -42,8 +42,8 @@ class DirectorController extends Controller
     }
 
     //* 
-    public function indexDirector($slug){
-        $director = Director::where("slug",$slug)->first();
+    public function indexDirector($id){
+        $director = Director::where("id",$id)->first();
 
         $directorDate = $director->date;
         $birthDate = Carbon::createFromFormat('Y-m-d', $directorDate);

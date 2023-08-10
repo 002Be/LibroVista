@@ -51,8 +51,8 @@ class SerieController extends Controller
     }
 
     //*
-    public function indexSerie($slug){
-        $serie = Serie::where("slug",$slug)->first();
+    public function indexSerie($id){
+        $serie = Serie::where("id",$id)->first();
 
         return view("contents.serie.single", compact("serie"));
     }

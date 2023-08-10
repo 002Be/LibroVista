@@ -495,7 +495,15 @@
         <div class="accordion-item" style="background-color:#191a1f; color:white; border:none;">
             <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    @foreach($userData['favorite_books'] as $book)
+                        <a href="{{route('book.index', $book['id'])}}">{{$book['name']}}</a><br>
+                    @endforeach
+                    @foreach($userData['favorite_movies'] as $movie)
+                    <a href="{{route('movie.index', $movie['id'])}}">{{$movie['name']}}</a><br>
+                    @endforeach
+                    @foreach($userData['favorite_series'] as $serie)
+                        <a href="{{route('serie.index', $serie['id'])}}">{{$serie['name']}}</a><br>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -534,13 +542,13 @@
 
                         @switch($counter)
                             @case(1)
-                                @php $snap1="writer"; $snap2="book"; @endphp
+                                @php $snap1="writer"; $snap2="book"; $snap3="getWriter"; @endphp
                                 @break
                             @case(2)
-                                @php $snap1="director"; $snap2="movie"; @endphp
+                                @php $snap1="director"; $snap2="movie"; $snap3="getDirector"; @endphp
                                 @break
                             @case(3)
-                                @php $snap1="director"; $snap2="serie"; @endphp
+                                @php $snap1="director"; $snap2="serie"; $snap3="getDirector"; @endphp
                                 @break
                             @case(4)
                                 @php $snap2="actor"; @endphp
@@ -555,7 +563,7 @@
 
                         @foreach($userAddContents as $userAddContent)
                         <div class="d-flex flex-row mb-3">
-                            <a href="{{route($snap2.'.index',$userAddContent->slug)}}">
+                            <a href="{{route($snap2.'.index',$userAddContent->id)}}">
                                 <div class="rounded overflow-hidden">
                                     <img loading="lazy" class="rwe" width="60" height="90" src="/{{$userAddContent->image}}" alt="{{$userAddContent->name}}">
                                 </div>
@@ -563,12 +571,12 @@
                             <div class="m-1">
                                 <div class="flex-row">
                                     <div class="flex-1">
-                                        <a href="{{route($snap2.'.index',$userAddContent->slug)}}" style="text-decoration: none; color:white;">
+                                        <a href="{{route($snap2.'.index',$userAddContent->id)}}" style="text-decoration: none; color:white;">
                                             <span>{{$userAddContent->name}}</span>
                                         </a>
                                         <div class="flex-row">
-                                            <a href="#" style="text-decoration: none; color:white;">
-                                                <span title="{{$userAddContent->$snap1}}" aria-label="{{$userAddContent->$snap1}}" class="text truncate text-15 hover:underline">{{$userAddContent->$snap1}}</span>
+                                            <a href="{{route($snap1.'.index',$userAddContent->$snap1)}}" style="text-decoration: none; color:white;">
+                                                <span class="text truncate text-15 hover:underline">{{$userAddContent->$snap3->name}}</span>
                                             </a>
                                         </div>
                                         <div class="flex-row">
@@ -621,18 +629,17 @@
             <hr>
             <div>
                 <h5 class="mt-3">Bitirilen Kitaplar</h5>
-                @foreach($userData['books_read'] as $friend)
-                    {{$friend['name']}}<br>
+                @foreach($userData['books_finished'] as $book)
+                    <a href="{{route('book.index', $book['id'])}}">{{$book['name']}}</a><br>
                 @endforeach
                 <h5 class="mt-3">Bitirilen Filmler</h5>
-                @foreach($userData['movies_watched'] as $friend)
-                    {{$friend['name']}}<br>
+                @foreach($userData['movies_finished'] as $movie)
+                    <a href="{{route('movie.index', $movie['id'])}}">{{$movie['name']}}</a><br>
                 @endforeach
                 <h5 class="mt-3">Bitirilen Diziler</h5>
-                @foreach($userData['series_wached'] as $friend)
-                    {{$friend['name']}}<br>
+                @foreach($userData['series_finished'] as $series)
+                    <a href="{{route('series.index', $series['id'])}}">{{$series['name']}}</a><br>
                 @endforeach
-                
             </div>
         </div>
     </div>

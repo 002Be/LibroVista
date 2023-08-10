@@ -46,11 +46,22 @@ Route::post('/Ekle/Yonetmen', [App\Http\Controllers\Contents\DirectorController:
 
 // |Tekil İçerik Sayfaları------------------------------------------------------------------
 Route::get('/Kitap/{slug}', [App\Http\Controllers\Contents\BookController::class, 'indexBook'])->name("book.index");
-Route::get('/Film/{slug}', [App\Http\Controllers\Contents\MovieController::class, 'indexMovie'])->name("movie.index");
-Route::get('/Dizi/{slug}', [App\Http\Controllers\Contents\SerieController::class, 'indexSerie'])->name("serie.index");
-Route::get('/Yazar/{slug}', [App\Http\Controllers\Contents\WriterController::class, 'indexWriter'])->name("writer.index");
-Route::get('/Oyuncu/{slug}', [App\Http\Controllers\Contents\ActorController::class, 'indexActor'])->name("actor.index");
-Route::get('/Yonetmen/{slug}', [App\Http\Controllers\Contents\DirectorController::class, 'indexDirector'])->name("director.index");
+Route::get('/Kitap/Islem/TakipEt/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemTakipEt'])->name("book.islem.TakipEt");
+Route::get('/Kitap/Islem/FavorilereEkle/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemFavorilereEkle'])->name("book.islem.FavorilereEkle");
+Route::get('/Kitap/Islem/Okunacak/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemOkunacak'])->name("book.islem.Okunacak");
+Route::get('/Kitap/Islem/Okunan/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemOkunan'])->name("book.islem.Okunan");
+Route::get('/Kitap/Islem/Okudum/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemOkudum'])->name("book.islem.Okudum");
+Route::get('/Kitap/Islem/Bıraktım/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemBiraktim'])->name("book.islem.Biraktim");
+
+Route::get('/Film/{id}', [App\Http\Controllers\Contents\MovieController::class, 'indexMovie'])->name("movie.index");
+
+Route::get('/Dizi/{id}', [App\Http\Controllers\Contents\SerieController::class, 'indexSerie'])->name("serie.index");
+
+Route::get('/Yazar/{id}', [App\Http\Controllers\Contents\WriterController::class, 'indexWriter'])->name("writer.index");
+
+Route::get('/Oyuncu/{id}', [App\Http\Controllers\Contents\ActorController::class, 'indexActor'])->name("actor.index");
+
+Route::get('/Yonetmen/{id}', [App\Http\Controllers\Contents\DirectorController::class, 'indexDirector'])->name("director.index");
 // |Tekil İçerik Sayfaları------------------------------------------------------------------
 
 // |Çoğul İçerik Sayfaları------------------------------------------------------------------
