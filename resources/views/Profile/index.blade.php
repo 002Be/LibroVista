@@ -496,14 +496,42 @@
             <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     @foreach($userData['favorite_books'] as $book)
-                        <a href="{{route('book.index', $book['id'])}}">{{$book['name']}}</a><br>
+                        @foreach($allBooks as $books)
+                            @if($book["id"]==$books["id"])
+                            <div class="d-flex flex-row mb-3">
+                                <a href="{{route('book.index',$books->id)}}">
+                                    <div class="rounded overflow-hidden">
+                                        <img loading="lazy" class="rwe" width="60" height="90" src="/{{$books->image}}" alt="{{$books->name}}">
+                                    </div>
+                                </a>
+                                <div class="m-1">
+                                    <div class="flex-row">
+                                        <div class="flex-1">
+                                            <a href="{{route('book.index',$books->id)}}" style="text-decoration: none; color:white;">
+                                                <span>{{$books->name}}</span>
+                                            </a>
+                                            <div class="flex-row">
+                                                <a href="{{route('writer.index',$books->writer)}}" style="text-decoration: none; color:white;">
+                                                    <span class="text truncate text-15 hover:underline">{{$books->getWriter->name}}</span>
+                                                </a>
+                                            </div>
+                                            <div class="flex-row">
+                                                <p> {{$books->rating}}/10 · {{$books->likes}} beğeni</p>
+                                                <p style="font-size: 10px; margin-top:-15px;"> Ekleme tarihi : {{date('d-m-Y', strtotime($books->created_at))}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                        @endforeach
                     @endforeach
-                    @foreach($userData['favorite_movies'] as $movie)
-                    <a href="{{route('movie.index', $movie['id'])}}">{{$movie['name']}}</a><br>
-                    @endforeach
-                    @foreach($userData['favorite_series'] as $serie)
-                        <a href="{{route('serie.index', $serie['id'])}}">{{$serie['name']}}</a><br>
-                    @endforeach
+                    <!-- @ foreach($userData['favorite_movies'] as $movie)
+                    <a href="{ {route('movie.index', $movie['id'])}}">{ {$movie['name']}}</a><br>
+                    @ endforeach
+                    @ foreach($userData['favorite_series'] as $serie)
+                        <a href="{ {route('serie.index', $serie['id'])}}">{ {$serie['name']}}</a><br>
+                    @ endforeach -->
                 </div>
             </div>
         </div>

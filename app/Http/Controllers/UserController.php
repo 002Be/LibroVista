@@ -64,7 +64,9 @@ class UserController extends Controller
         $uAddDirector = Director::where("addPerson", $username)->get();
         $userAddContentsAll = [$uAddBook, $uAddMovie, $uAddSerie, $uAddActor, $uAddWriter, $uAddDirector];
 
-        return view("profile.index", compact("users","userData","userAddContentsAll"));
+        $allBooks = Book::get();
+
+        return view("profile.index", compact("users","userData","userAddContentsAll","allBooks"));
     }
 
     public function userSettings(){
