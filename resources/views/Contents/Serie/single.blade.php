@@ -9,32 +9,49 @@
         <div>
             <img src="/{{$serie->image}}" width="300" height="450" alt="{{$serie->name}}">
         </div>
-        <div class="m-4">
-            <p id="deneme">DENEME</p>
-            <div style="text-align: center;"><i class="bi bi-star"></i> {{$serie->rating}} · <i class="bi bi-people"></i> 10</div><br>
-            Ad : {{$serie->name}}
-            <br>
-            Tür : 
-            @php 
-                $categoriesArray = explode(',', $serie->category); 
-                $categoriesCount = count($categoriesArray);
-            @endphp
-            @foreach($categoriesArray as $category)
-                @php $categoriesCount-- @endphp
-                <a href="#" style="text-decoration: none;">{{$category}}</a>@if($categoriesCount>0),@endif
-            @endforeach
-            <br>
-            Çıkış Yılı : {{date('Y', strtotime($serie->releaseYear))}}
-            <br>
-            Sezon Sayısı : {{$serie->season}}
-            <br>
-            <hr>
-                <h6>Yönetmen</h6>
-                <img src="/{{$serie->image}}" width="40" height="40" style="border-radius:50%;" alt="{{$serie->name}}">
-                Adı : <a href="#" style="text-decoration: none;">{{$serie->director}}</a>
+        <div class="m-4 col-7">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-danger" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sliders2-vertical"></i></button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('serie.islem.TakipEt',[$serie->id,$serie->name,$serie->slug])}}">@if(in_array($serie->id, $takipID)) Takipten Çıkar @else Takip Et @endif</a></li>
+                    <li><a class="dropdown-item" href="{{route('serie.islem.FavorilereEkle',[$serie->id,$serie->name,$serie->slug])}}">@if(in_array($serie->id, $favoriID)) Favorilerden Kaldır @else Favorilere Ekle @endif</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{route('serie.islem.Izlenilen',[$serie->id,$serie->name,$serie->slug])}}" @if(in_array($serie->id, $izliyorumID)) style="background-color:gray;" @endif>İzliyorum</a></li>
+                    <li><a class="dropdown-item" href="{{route('serie.islem.Izledim',[$serie->id,$serie->name,$serie->slug])}}" @if(in_array($serie->id, $izledimID)) style="background-color:gray;" @endif>Bitirdim</a></li>
+                    <li><a class="dropdown-item" href="{{route('serie.islem.Biraktim',[$serie->id,$serie->name,$serie->slug])}}" @if(in_array($serie->id, $biraktimID)) style="background-color:gray;" @endif>Bıraktım</a></li>
+                    <li><a class="dropdown-item" href="{{route('serie.islem.Izlenilecek',[$serie->id,$serie->name,$serie->slug])}}" @if(in_array($serie->id, $izlenecekID)) style="background-color:gray;" @endif>Daha Sonra</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Düzeltme Öner</a></li>
+                    <li><a class="dropdown-item" href="#">Şikayet Et</a></li>
+                </ul>
+            </div>
+            <div class="m-4">
+                <p id="deneme">DENEME</p>
+                <div style="text-align: center;"><i class="bi bi-star"></i> {{$serie->rating}} · <i class="bi bi-people"></i> 10</div><br>
+                Ad : {{$serie->name}}
                 <br>
-                Hakkında : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut iusto veritatis pariatur et sint minus nostrum quae, nemo qui culpa officia animi cumque ipsa ab possimus ipsum aspernatur doloremque sequi.
-            <br>
+                Tür : 
+                @php 
+                    $categoriesArray = explode(',', $serie->category); 
+                    $categoriesCount = count($categoriesArray);
+                @endphp
+                @foreach($categoriesArray as $category)
+                    @php $categoriesCount-- @endphp
+                    <a href="#" style="text-decoration: none;">{{$category}}</a>@if($categoriesCount>0),@endif
+                @endforeach
+                <br>
+                Çıkış Yılı : {{date('Y', strtotime($serie->releaseYear))}}
+                <br>
+                Sezon Sayısı : {{$serie->season}}
+                <br>
+                <hr>
+                    <h6>Yönetmen</h6>
+                    <img src="/{{$serie->image}}" width="40" height="40" style="border-radius:50%;" alt="{{$serie->name}}">
+                    Adı : <a href="#" style="text-decoration: none;">{{$serie->director}}</a>
+                    <br>
+                    Hakkında : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut iusto veritatis pariatur et sint minus nostrum quae, nemo qui culpa officia animi cumque ipsa ab possimus ipsum aspernatur doloremque sequi.
+                <br>
+            </div>
         </div>
     </div>
 </div>

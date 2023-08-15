@@ -9,13 +9,25 @@
         <div>
             <img src="/{{$writer->image}}" width="300" height="450" alt="{{$writer->name}}">
         </div>
-        <div class="m-4">
-            <div style="text-align: center;"><i class="bi bi-star"></i> {{$writer->rating}} · <i class="bi bi-people"></i> 10</div><br>
-            Ad : {{$writer->name}}
-            <br>
-            Doğum tarihi : {{date('d-m-Y', strtotime($writer->date))}} · {{$ageWriter}} yaşında.
-            <br>
-            Beğeni Sayısı : {{$writer->likes}}
+        <div class="m-4 col-7">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-danger" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sliders2-vertical"></i></button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('writer.islem.TakipEt',[$writer->id,$writer->name,$writer->slug])}}">@if(in_array($writer->id, $takipID)) Takipten Çıkar @else Takip Et @endif</a></li>
+                    <li><a class="dropdown-item" href="{{route('writer.islem.FavorilereEkle',[$writer->id,$writer->name,$writer->slug])}}">@if(in_array($writer->id, $favoriID)) Favorilerden Kaldır @else Favorilere Ekle @endif</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Düzeltme Öner</a></li>
+                    <li><a class="dropdown-item" href="#">Şikayet Et</a></li>
+                </ul>
+            </div>
+            <div class="m-4">
+                <div style="text-align: center;"><i class="bi bi-star"></i> {{$writer->rating}} · <i class="bi bi-people"></i> 10</div><br>
+                Ad : {{$writer->name}}
+                <br>
+                Doğum tarihi : {{date('d-m-Y', strtotime($writer->date))}} · {{$ageWriter}} yaşında.
+                <br>
+                Beğeni Sayısı : {{$writer->likes}}
+            </div>
         </div>
     </div>
 </div>

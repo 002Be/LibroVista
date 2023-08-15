@@ -9,13 +9,25 @@
         <div>
             <img src="/{{$director->image}}" width="300" height="450" alt="{{$director->name}}">
         </div>
-        <div class="m-4">
-            <div style="text-align: center;"><i class="bi bi-star"></i> {{$director->rating}} · <i class="bi bi-people"></i> 10</div><br>
-            Ad : {{$director->name}}
-            <br>
-            Doğum tarihi : {{date('d-m-Y', strtotime($director->date))}} · {{$ageDirector}} yaşında.
-            <br>
-            Beğeni Sayısı : {{$director->likes}}
+        <div class="m-4 col-7">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-danger" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sliders2-vertical"></i></button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('director.islem.TakipEt',[$director->id,$director->name,$director->slug])}}">@if(in_array($director->id, $takipID)) Takipten Çıkar @else Takip Et @endif</a></li>
+                    <li><a class="dropdown-item" href="{{route('director.islem.FavorilereEkle',[$director->id,$director->name,$director->slug])}}">@if(in_array($director->id, $favoriID)) Favorilerden Kaldır @else Favorilere Ekle @endif</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Düzeltme Öner</a></li>
+                    <li><a class="dropdown-item" href="#">Şikayet Et</a></li>
+                </ul>
+            </div>
+            <div class="m-4">
+                <div style="text-align: center;"><i class="bi bi-star"></i> {{$director->rating}} · <i class="bi bi-people"></i> 10</div><br>
+                Ad : {{$director->name}}
+                <br>
+                Doğum tarihi : {{date('d-m-Y', strtotime($director->date))}} · {{$ageDirector}} yaşında.
+                <br>
+                Beğeni Sayısı : {{$director->likes}}
+            </div>
         </div>
     </div>
 </div>

@@ -9,31 +9,47 @@
         <div>
             <img src="/{{$movie->image}}" width="300" height="450" alt="{{$movie->name}}">
         </div>
-        <div class="m-4">
-            <div style="text-align: center;"><i class="bi bi-star"></i> {{$movie->rating}} · <i class="bi bi-people"></i> 10</div><br>
-            Ad : {{$movie->name}}
-            <br>
-            Tür : 
-            @php 
-                $categoriesArray = explode(',', $movie->category); 
-                $categoriesCount = count($categoriesArray);
-            @endphp
-            @foreach($categoriesArray as $category)
-                @php $categoriesCount-- @endphp
-                <a href="#" style="text-decoration: none;">{{$category}}</a>@if($categoriesCount>0),@endif
-            @endforeach
-            <br>
-            Çıkış Yılı : {{date('Y', strtotime($movie->releaseYear))}}
-            <br>
-            Film Süresi : {{$movie->duration}}
-            <br>
-            <hr>
-                <h6>Yönetmen</h6>
-                <img src="/{{$movie->image}}" width="40" height="40" style="border-radius:50%;" alt="{{$movie->name}}">
-                Adı : <a href="#" style="text-decoration: none;">{{$movie->director}}</a>
+        <div class="m-4 col-7">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-danger" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sliders2-vertical"></i></button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('movie.islem.TakipEt',[$movie->id,$movie->name,$movie->slug])}}">@if(in_array($movie->id, $takipID)) Takipten Çıkar @else Takip Et @endif</a></li>
+                    <li><a class="dropdown-item" href="{{route('movie.islem.FavorilereEkle',[$movie->id,$movie->name,$movie->slug])}}">@if(in_array($movie->id, $favoriID)) Favorilerden Kaldır @else Favorilere Ekle @endif</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{route('movie.islem.Izledim',[$movie->id,$movie->name,$movie->slug])}}" @if(in_array($movie->id, $izledimID)) style="background-color:gray;" @endif>Bitirdim</a></li>
+                    <li><a class="dropdown-item" href="{{route('movie.islem.Biraktim',[$movie->id,$movie->name,$movie->slug])}}" @if(in_array($movie->id, $biraktimID)) style="background-color:gray;" @endif>Bıraktım</a></li>
+                    <li><a class="dropdown-item" href="{{route('movie.islem.Izlenilecek',[$movie->id,$movie->name,$movie->slug])}}" @if(in_array($movie->id, $izlenecekID)) style="background-color:gray;" @endif>Daha Sonra</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Düzeltme Öner</a></li>
+                    <li><a class="dropdown-item" href="#">Şikayet Et</a></li>
+                </ul>
+            </div>
+            <div class="m-4">
+                <div style="text-align: center;"><i class="bi bi-star"></i> {{$movie->rating}} · <i class="bi bi-people"></i> 10</div><br>
+                Ad : {{$movie->name}}
                 <br>
-                Hakkında : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut iusto veritatis pariatur et sint minus nostrum quae, nemo qui culpa officia animi cumque ipsa ab possimus ipsum aspernatur doloremque sequi.
-            <br>
+                Tür : 
+                @php 
+                    $categoriesArray = explode(',', $movie->category); 
+                    $categoriesCount = count($categoriesArray);
+                @endphp
+                @foreach($categoriesArray as $category)
+                    @php $categoriesCount-- @endphp
+                    <a href="#" style="text-decoration: none;">{{$category}}</a>@if($categoriesCount>0),@endif
+                @endforeach
+                <br>
+                Çıkış Yılı : {{date('Y', strtotime($movie->releaseYear))}}
+                <br>
+                Film Süresi : {{$movie->duration}}
+                <br>
+                <hr>
+                    <h6>Yönetmen</h6>
+                    <img src="/{{$movie->image}}" width="40" height="40" style="border-radius:50%;" alt="{{$movie->name}}">
+                    Adı : <a href="#" style="text-decoration: none;">{{$movie->director}}</a>
+                    <br>
+                    Hakkında : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut iusto veritatis pariatur et sint minus nostrum quae, nemo qui culpa officia animi cumque ipsa ab possimus ipsum aspernatur doloremque sequi.
+                <br>
+            </div>
         </div>
     </div>
 </div>

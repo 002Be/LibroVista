@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Director;
+use App\Models\User;
 use Carbon\Carbon;
 
 class DirectorController extends Controller
@@ -50,11 +51,72 @@ class DirectorController extends Controller
         $currentDate = Carbon::now();
         $ageDirector = $currentDate->diffInYears($birthDate);
 
-        return view("contents.director.single", compact("director","ageDirector"));
+        $userData = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($userData->data, true);
+        $favoriID = [];
+        $takipID = [];
+        foreach($userData["favorite_directors"] as $key){ array_unshift($favoriID, $key["id"]); }
+        foreach($userData["followed_directors"] as $key){ array_unshift($takipID, $key["id"]); }
+
+        return view("contents.director.single", compact("director","ageDirector","favoriID","takipID"));
     }
 
     //* 
     public function deleteDirector(Request $request){
         
+    }
+
+    public function islemTakipEt($id,$name,$slug){
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $idler = [];
+        foreach($userData["followed_directors"] as $key){ array_unshift($idler, $key["id"]); }
+        if(in_array($id, $idler)){
+            $updatedFavoriteBooks = array_filter($userData['followed_directors'], function ($book) use ($id) {
+                return $book['id'] !== $id;
+            });
+            $userData['followed_directors'] = $updatedFavoriteBooks;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("Takipten çıkartıldı","Başarılı");
+        }else{
+            $newFollowedBook = [
+                "id" => $id,
+                "name" => $name,
+                "slug" => $slug
+            ];
+            $userData['followed_directors'][] = $newFollowedBook;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("Takip edildi","Başarılı");
+        }
+        return redirect()->back();
+    }
+
+    public function islemFavorilereEkle($id,$name,$slug){
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $idler = [];
+        foreach($userData["favorite_directors"] as $key){ array_unshift($idler, $key["id"]); }
+        if(in_array($id, $idler)){
+            $updatedFavoriteBooks = array_filter($userData['favorite_directors'], function ($book) use ($id) {
+                return $book['id'] !== $id;
+            });
+            $userData['favorite_directors'] = $updatedFavoriteBooks;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("Favorilerden kaldırıldı","Başarılı");
+        }else{
+            $newFollowedBook = [ // Yeni takip edilen kitabın bilgilerini oluşturun
+                "id" => $id,
+                "name" => $name,
+                "slug" => $slug
+            ];
+            $userData['favorite_directors'][] = $newFollowedBook; // "favorite_directors" içine yeni kitabı ekleyin
+            $user->data = json_encode($userData); // JSON verisini güncelle
+            $user->save(); // Kullanıcıyı kaydet
+            toastr()->success("Favorilere eklendi","Başarılı");
+        }
+        return redirect()->back();
     }
 }

@@ -69,10 +69,10 @@ class BookController extends Controller
         foreach($userData["books_read"] as $key){ array_unshift($okuyorumID, $key["id"]); }
         $okudumID = [];
         foreach($userData["books_finished"] as $key){ array_unshift($okudumID, $key["id"]); }
-        $bıraktımID = [];
-        foreach($userData["books_dropped"] as $key){ array_unshift($bıraktımID, $key["id"]); }
+        $biraktimID = [];
+        foreach($userData["books_dropped"] as $key){ array_unshift($biraktimID, $key["id"]); }
 
-        return view("contents.book.single", compact("book","favoriID","takipID","okunacakID","okuyorumID","okudumID","bıraktımID"));
+        return view("contents.book.single", compact("book","favoriID","takipID","okunacakID","okuyorumID","okudumID","biraktimID"));
     }
 
     //* Kitabı sil

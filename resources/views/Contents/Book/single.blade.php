@@ -18,8 +18,8 @@
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="{{route('book.islem.Okunan',[$book->id,$book->name,$book->slug])}}" @if(in_array($book->id, $okuyorumID)) style="background-color:gray;" @endif>Okuyorum</a></li>
                     <li><a class="dropdown-item" href="{{route('book.islem.Okudum',[$book->id,$book->name,$book->slug])}}" @if(in_array($book->id, $okudumID)) style="background-color:gray;" @endif>Bitirdim</a></li>
-                    <li><a class="dropdown-item" href="{{route('book.islem.Okunacak',[$book->id,$book->name,$book->slug])}}" @if(in_array($book->id, $okunacakID)) style="background-color:gray;" @endif>Okunacak</a></li>
-                    <li><a class="dropdown-item" href="{{route('book.islem.Biraktim',[$book->id,$book->name,$book->slug])}}" @if(in_array($book->id, $bıraktımID)) style="background-color:gray;" @endif>Bıraktım</a></li>
+                    <li><a class="dropdown-item" href="{{route('book.islem.Biraktim',[$book->id,$book->name,$book->slug])}}" @if(in_array($book->id, $biraktimID)) style="background-color:gray;" @endif>Bıraktım</a></li>
+                    <li><a class="dropdown-item" href="{{route('book.islem.Okunacak',[$book->id,$book->name,$book->slug])}}" @if(in_array($book->id, $okunacakID)) style="background-color:gray;" @endif>Daha Sonra</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">Düzeltme Öner</a></li>
                     <li><a class="dropdown-item" href="#">Şikayet Et</a></li>

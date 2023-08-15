@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Director;
 use App\Models\Movie;
+use App\Models\User;
 
 class MovieController extends Controller
 {
@@ -54,11 +55,198 @@ class MovieController extends Controller
     public function indexMovie($id){
         $movie = Movie::where("id",$id)->first();
 
-        return view("contents.movie.single", compact("movie"));
+        $userData = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($userData->data, true);
+        $favoriID = [];
+        foreach($userData["favorite_movies"] as $key){ array_unshift($favoriID, $key["id"]); }
+        $takipID = [];
+        foreach($userData["followed_movies"] as $key){ array_unshift($takipID, $key["id"]); }
+        $izlenecekID = [];
+        foreach($userData["movies_to_watched"] as $key){ array_unshift($izlenecekID, $key["id"]); }
+        $izledimID = [];
+        foreach($userData["movies_finished"] as $key){ array_unshift($izledimID, $key["id"]); }
+        $biraktimID = [];
+        foreach($userData["movies_dropped"] as $key){ array_unshift($biraktimID, $key["id"]); }
+
+        return view("contents.movie.single", compact("movie","favoriID","takipID","izlenecekID","izledimID","biraktimID"));
     }
 
     //*
     public function deleteMovie(Request $request){
         
+    }
+
+    public function islemTakipEt($id,$name,$slug){
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $idler = [];
+        foreach($userData["followed_movies"] as $key){ array_unshift($idler, $key["id"]); }
+        if(in_array($id, $idler)){
+            $updatedFavoriteBooks = array_filter($userData['followed_movies'], function ($movie) use ($id) {
+                return $movie['id'] !== $id;
+            });
+            $userData['followed_movies'] = $updatedFavoriteBooks;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("Takipten çıkartıldı","Başarılı");
+        }else{
+            $newFollowedBook = [
+                "id" => $id,
+                "name" => $name,
+                "slug" => $slug
+            ];
+            $userData['followed_movies'][] = $newFollowedBook;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("Takip edildi","Başarılı");
+        }
+        return redirect()->back();
+    }
+
+    public function islemFavorilereEkle($id,$name,$slug){
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $idler = [];
+        foreach($userData["favorite_movies"] as $key){ array_unshift($idler, $key["id"]); }
+        if(in_array($id, $idler)){
+            $updatedFavoriteBooks = array_filter($userData['favorite_movies'], function ($movie) use ($id) {
+                return $movie['id'] !== $id;
+            });
+            $userData['favorite_movies'] = $updatedFavoriteBooks;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("Favorilerden kaldırıldı","Başarılı");
+        }else{
+            $newFollowedBook = [ // Yeni takip edilen kitabın bilgilerini oluşturun
+                "id" => $id,
+                "name" => $name,
+                "slug" => $slug
+            ];
+            $userData['favorite_movies'][] = $newFollowedBook; // "favorite_movies" içine yeni kitabı ekleyin
+            $user->data = json_encode($userData); // JSON verisini güncelle
+            $user->save(); // Kullanıcıyı kaydet
+            toastr()->success("Favorilere eklendi","Başarılı");
+        }
+        return redirect()->back();
+    }
+
+    public function islemIzlenilecek($id,$name,$slug){ //movies_to_watched
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $idler = [];
+        foreach($userData["movies_to_watched"] as $key){ array_unshift($idler, $key["id"]); }
+        if(in_array($id, $idler)){
+            $updatedFavoriteBooks = array_filter($userData['movies_to_watched'], function ($movie) use ($id) {
+                return $movie['id'] !== $id;
+            });
+            $userData['movies_to_watched'] = $updatedFavoriteBooks;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("","Başarılı");
+        }else{
+            $durumlar= ["movies_finished", "movies_dropped", "movies_watched"];
+            foreach ($durumlar as $durum) {
+                $idler = [];
+                foreach($userData[$durum] as $key){ array_unshift($idler, $key["id"]); }
+                if(in_array($id, $idler)){
+                    $updatedFavoriteBooks = array_filter($userData[$durum], function ($movie) use ($id) {
+                        return $movie['id'] !== $id;
+                    });
+                    $userData[$durum] = $updatedFavoriteBooks;
+                    $user->data = json_encode($userData);
+                    $user->save();
+                }
+            }
+            $newFollowedBook = [
+                "id" => $id,
+                "name" => $name,
+                "slug" => $slug
+            ];
+            $userData['movies_to_watched'][] = $newFollowedBook;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("","Başarılı");
+        }
+        return redirect()->back();
+    }
+
+    public function islemIzledim($id,$name,$slug){ //movies_finished
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $idler = [];
+        foreach($userData["movies_finished"] as $key){ array_unshift($idler, $key["id"]); }
+        if(in_array($id, $idler)){
+            $updatedFavoriteBooks = array_filter($userData['movies_finished'], function ($movie) use ($id) {
+                return $movie['id'] !== $id;
+            });
+            $userData['movies_finished'] = $updatedFavoriteBooks;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("","Başarılı");
+        }else{
+            $durumlar= ["movies_to_watched", "movies_dropped", "movies_watched"];
+            foreach ($durumlar as $durum) {
+                $idler = [];
+                foreach($userData[$durum] as $key){ array_unshift($idler, $key["id"]); }
+                if(in_array($id, $idler)){
+                    $updatedFavoriteBooks = array_filter($userData[$durum], function ($movie) use ($id) {
+                        return $movie['id'] !== $id;
+                    });
+                    $userData[$durum] = $updatedFavoriteBooks;
+                    $user->data = json_encode($userData);
+                    $user->save();
+                }
+            }
+            $newFollowedBook = [
+                "id" => $id,
+                "name" => $name,
+                "slug" => $slug
+            ];
+            $userData['movies_finished'][] = $newFollowedBook;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("","Başarılı");
+        }
+        return redirect()->back();
+    }
+
+    public function islemBiraktim($id,$name,$slug){ //movies_dropped
+        $user = User::where('username', Auth::user()->username)->first();
+        $userData = json_decode($user->data, true);
+        $idler = [];
+        foreach($userData["movies_dropped"] as $key){ array_unshift($idler, $key["id"]); }
+        if(in_array($id, $idler)){
+            $updatedFavoriteBooks = array_filter($userData['movies_dropped'], function ($movie) use ($id) {
+                return $movie['id'] !== $id;
+            });
+            $userData['movies_dropped'] = $updatedFavoriteBooks;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("","Başarılı");
+        }else{
+            $durumlar= ["movies_to_watched", "movies_finished", "movies_watched"];
+            foreach ($durumlar as $durum) {
+                $idler = [];
+                foreach($userData[$durum] as $key){ array_unshift($idler, $key["id"]); }
+                if(in_array($id, $idler)){
+                    $updatedFavoriteBooks = array_filter($userData[$durum], function ($movie) use ($id) {
+                        return $movie['id'] !== $id;
+                    });
+                    $userData[$durum] = $updatedFavoriteBooks;
+                    $user->data = json_encode($userData);
+                    $user->save();
+                }
+            }
+            $newFollowedBook = [
+                "id" => $id,
+                "name" => $name,
+                "slug" => $slug
+            ];
+            $userData['movies_dropped'][] = $newFollowedBook;
+            $user->data = json_encode($userData);
+            $user->save();
+            toastr()->success("","Başarılı");
+        }
+        return redirect()->back();
     }
 }

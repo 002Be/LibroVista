@@ -45,7 +45,7 @@ Route::post('/Ekle/Yonetmen', [App\Http\Controllers\Contents\DirectorController:
 // |İçerik Ekleme Sayfaları------------------------------------------------------------------
 
 // |Tekil İçerik Sayfaları------------------------------------------------------------------
-Route::get('/Kitap/{slug}', [App\Http\Controllers\Contents\BookController::class, 'indexBook'])->name("book.index");
+Route::get('/Kitap/{id}', [App\Http\Controllers\Contents\BookController::class, 'indexBook'])->name("book.index");
 Route::get('/Kitap/Islem/TakipEt/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemTakipEt'])->name("book.islem.TakipEt");
 Route::get('/Kitap/Islem/FavorilereEkle/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemFavorilereEkle'])->name("book.islem.FavorilereEkle");
 Route::get('/Kitap/Islem/Okunacak/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemOkunacak'])->name("book.islem.Okunacak");
@@ -54,14 +54,31 @@ Route::get('/Kitap/Islem/Okudum/{id}-{name}-{slug}', [App\Http\Controllers\Conte
 Route::get('/Kitap/Islem/Bıraktım/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemBiraktim'])->name("book.islem.Biraktim");
 
 Route::get('/Film/{id}', [App\Http\Controllers\Contents\MovieController::class, 'indexMovie'])->name("movie.index");
+Route::get('/Film/Islem/TakipEt/{id}-{name}-{slug}', [App\Http\Controllers\Contents\MovieController::class, 'islemTakipEt'])->name("movie.islem.TakipEt");
+Route::get('/Film/Islem/FavorilereEkle/{id}-{name}-{slug}', [App\Http\Controllers\Contents\MovieController::class, 'islemFavorilereEkle'])->name("movie.islem.FavorilereEkle");
+Route::get('/Film/Islem/Izlenilecek/{id}-{name}-{slug}', [App\Http\Controllers\Contents\MovieController::class, 'islemIzlenilecek'])->name("movie.islem.Izlenilecek");
+Route::get('/Film/Islem/Izledim/{id}-{name}-{slug}', [App\Http\Controllers\Contents\MovieController::class, 'islemIzledim'])->name("movie.islem.Izledim");
+Route::get('/Film/Islem/Biraktim/{id}-{name}-{slug}', [App\Http\Controllers\Contents\MovieController::class, 'islemBiraktim'])->name("movie.islem.Biraktim");
 
 Route::get('/Dizi/{id}', [App\Http\Controllers\Contents\SerieController::class, 'indexSerie'])->name("serie.index");
+Route::get('/Dizi/Islem/TakipEt/{id}-{name}-{slug}', [App\Http\Controllers\Contents\SerieController::class, 'islemTakipEt'])->name("serie.islem.TakipEt");
+Route::get('/Dizi/Islem/FavorilereEkle/{id}-{name}-{slug}', [App\Http\Controllers\Contents\SerieController::class, 'islemFavorilereEkle'])->name("serie.islem.FavorilereEkle");
+Route::get('/Dizi/Islem/Izlenilecek/{id}-{name}-{slug}', [App\Http\Controllers\Contents\SerieController::class, 'islemIzlenilecek'])->name("serie.islem.Izlenilecek");
+Route::get('/Dizi/Islem/Izlenilen/{id}-{name}-{slug}', [App\Http\Controllers\Contents\SerieController::class, 'islemIzlenilen'])->name("serie.islem.Izlenilen");
+Route::get('/Dizi/Islem/Izledim/{id}-{name}-{slug}', [App\Http\Controllers\Contents\SerieController::class, 'islemIzledim'])->name("serie.islem.Izledim");
+Route::get('/Dizi/Islem/Biraktim/{id}-{name}-{slug}', [App\Http\Controllers\Contents\SerieController::class, 'islemBiraktim'])->name("serie.islem.Biraktim");
 
 Route::get('/Yazar/{id}', [App\Http\Controllers\Contents\WriterController::class, 'indexWriter'])->name("writer.index");
+Route::get('/Yazar/Islem/TakipEt/{id}-{name}-{slug}', [App\Http\Controllers\Contents\WriterController::class, 'islemTakipEt'])->name("writer.islem.TakipEt");
+Route::get('/Yazar/Islem/FavorilereEkle/{id}-{name}-{slug}', [App\Http\Controllers\Contents\WriterController::class, 'islemFavorilereEkle'])->name("writer.islem.FavorilereEkle");
 
 Route::get('/Oyuncu/{id}', [App\Http\Controllers\Contents\ActorController::class, 'indexActor'])->name("actor.index");
+Route::get('/Oyuncu/Islem/TakipEt/{id}-{name}-{slug}', [App\Http\Controllers\Contents\ActorController::class, 'islemTakipEt'])->name("actor.islem.TakipEt");
+Route::get('/Oyuncu/Islem/FavorilereEkle/{id}-{name}-{slug}', [App\Http\Controllers\Contents\ActorController::class, 'islemFavorilereEkle'])->name("actor.islem.FavorilereEkle");
 
 Route::get('/Yonetmen/{id}', [App\Http\Controllers\Contents\DirectorController::class, 'indexDirector'])->name("director.index");
+Route::get('/Yonetmen/Islem/TakipEt/{id}-{name}-{slug}', [App\Http\Controllers\Contents\DirectorController::class, 'islemTakipEt'])->name("director.islem.TakipEt");
+Route::get('/Yonetmen/Islem/FavorilereEkle/{id}-{name}-{slug}', [App\Http\Controllers\Contents\DirectorController::class, 'islemFavorilereEkle'])->name("director.islem.FavorilereEkle");
 // |Tekil İçerik Sayfaları------------------------------------------------------------------
 
 // |Çoğul İçerik Sayfaları------------------------------------------------------------------
