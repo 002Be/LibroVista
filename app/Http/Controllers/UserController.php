@@ -54,7 +54,6 @@ class UserController extends Controller
         $userData = User::select('data')->where('username', $username)->first();
         $json_data = $userData->data;
         $userData = json_decode($json_data, true);
-        $userData["biography"];
 
         $uAddBook = Book::where("addPerson", $username)->get();
         $uAddMovie = Movie::where("addPerson", $username)->get();
@@ -64,9 +63,15 @@ class UserController extends Controller
         $uAddDirector = Director::where("addPerson", $username)->get();
         $userAddContentsAll = [$uAddBook, $uAddMovie, $uAddSerie, $uAddActor, $uAddWriter, $uAddDirector];
 
-        $allBooks = Book::get();
+        $aBooks = Book::get();
+        $aMovies = Movie::get();
+        $aSeries = Serie::get();
+        $aActors = Actor::get();
+        $aWriters = Writer::get();
+        $aDirectors = Director::get();
+        $contentsJsonAll = ["favorite_books","favorite_movies","favorite_series","favorite_actors","favorite_writers","favorite_directors"];
 
-        return view("profile.index", compact("users","userData","userAddContentsAll","allBooks"));
+        return view("profile.index", compact("users","userData","userAddContentsAll", "aBooks", "aMovies", "aSeries", "aActors", "aWriters", "aDirectors"));
     }
 
     public function userSettings(){

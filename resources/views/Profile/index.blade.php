@@ -393,66 +393,6 @@
 @endsection
 @section("content")
 
-<!-- <div class="container">
-    <div class="card right-profile-card">
-        <div class="card-header alert-primary">
-            <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#" role="tab" aria-selected="true">
-                        Paylaşımlar
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#" role="tab" aria-selected="false">
-                        İncelemeler
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#" role="tab" aria-selected="false">
-                        Favoriler
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#"  role="tab" aria-selected="false">
-                        İzlenen Filmler
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#"  role="tab" aria-selected="false">
-                        İzlenen Diziler
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#" role="tab" aria-selected="false">
-                        Okunan Kitaplar
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="card-body">
-            <div class="tab-content">
-                <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <div class="work-container">
-                        <h3>Tech Lead :- World of Internet</h3>
-                        <h4><i class="far fa-calendar-alt"></i>Jan 2017 to <span class="badge badge-info">Current</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <div class="work-container">
-                        <h3>Senior UI Developer :- Pixel Factory</h3>
-                        <h4><i class="far fa-calendar-alt"></i>Jan 2017 to <span class="badge badge-info">Current</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <div class="work-container">
-                        <h3>Jr. Front End Developer :- Graphics Media</h3>
-                        <h4><i class="far fa-calendar-alt"></i>Jan 2017 to <span class="badge badge-info">Current</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="card card-body mt-2" style="background-color:#191a1f;">
     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1" checked>
@@ -495,43 +435,72 @@
         <div class="accordion-item" style="background-color:#191a1f; color:white; border:none;">
             <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    @foreach($userData['favorite_books'] as $book)
-                        @foreach($allBooks as $books)
-                            @if($book["id"]==$books["id"])
-                            <div class="d-flex flex-row mb-3">
-                                <a href="{{route('book.index',$books->id)}}">
-                                    <div class="rounded overflow-hidden">
-                                        <img loading="lazy" class="rwe" width="60" height="90" src="/{{$books->image}}" alt="{{$books->name}}">
-                                    </div>
-                                </a>
-                                <div class="m-1">
-                                    <div class="flex-row">
-                                        <div class="flex-1">
-                                            <a href="{{route('book.index',$books->id)}}" style="text-decoration: none; color:white;">
-                                                <span>{{$books->name}}</span>
-                                            </a>
-                                            <div class="flex-row">
-                                                <a href="{{route('writer.index',$books->writer)}}" style="text-decoration: none; color:white;">
-                                                    <span class="text truncate text-15 hover:underline">{{$books->getWriter->name}}</span>
+                    <div>
+                        @foreach($userData['favorite_books'] as $book)
+                            @foreach($aBooks as $books)
+                                @if($book["id"]==$books["id"])
+                                <div class="d-flex flex-row mb-3">
+                                    <a href="{{route('book.index',$books->id)}}">
+                                        <div class="rounded overflow-hidden">
+                                            <img loading="lazy" class="rwe" width="60" height="90" src="/{{$books->image}}" alt="{{$books->name}}">
+                                        </div>
+                                    </a>
+                                    <div class="m-1">
+                                        <div class="flex-row">
+                                            <div class="flex-1">
+                                                <a href="{{route('book.index',$books->id)}}" style="text-decoration: none; color:white;">
+                                                    <span>{{$books->name}}</span>
                                                 </a>
-                                            </div>
-                                            <div class="flex-row">
-                                                <p> {{$books->rating}}/10 · {{$books->likes}} beğeni</p>
-                                                <p style="font-size: 10px; margin-top:-15px;"> Ekleme tarihi : {{date('d-m-Y', strtotime($books->created_at))}}</p>
+                                                <div class="flex-row">
+                                                    <a href="{{route('writer.index',$books->writer)}}" style="text-decoration: none; color:white;">
+                                                        <span class="text truncate text-15 hover:underline">{{$books->getWriter->name}}</span>
+                                                    </a>
+                                                </div>
+                                                <div class="flex-row">
+                                                    <p> {{$books->rating}}/10 · {{$books->likes}} beğeni</p>
+                                                    <p style="font-size: 10px; margin-top:-15px;"> Ekleme tarihi : {{date('d-m-Y', strtotime($books->created_at))}}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            @endif
+                                @endif
+                            @endforeach
                         @endforeach
-                    @endforeach
-                    <!-- @ foreach($userData['favorite_movies'] as $movie)
-                    <a href="{ {route('movie.index', $movie['id'])}}">{ {$movie['name']}}</a><br>
-                    @ endforeach
-                    @ foreach($userData['favorite_series'] as $serie)
-                        <a href="{ {route('serie.index', $serie['id'])}}">{ {$serie['name']}}</a><br>
-                    @ endforeach -->
+                    </div>
+                    <div>
+                        @foreach($userData['favorite_movies'] as $book)
+                            @foreach($aMovies as $books)
+                                @if($book["id"]==$books["id"])
+                                <div class="d-flex flex-row mb-3">
+                                    <a href="{{route('book.index',$books->id)}}">
+                                        <div class="rounded overflow-hidden">
+                                            <img loading="lazy" class="rwe" width="60" height="90" src="/{{$books->image}}" alt="{{$books->name}}">
+                                        </div>
+                                    </a>
+                                    <div class="m-1">
+                                        <div class="flex-row">
+                                            <div class="flex-1">
+                                                <a href="{{route('book.index',$books->id)}}" style="text-decoration: none; color:white;">
+                                                    <span>{{$books->name}}</span>
+                                                </a>
+                                                <div class="flex-row">
+                                                    <a href="{{route('writer.index',$books->writer)}}" style="text-decoration: none; color:white;">
+                                                        <span class="text truncate text-15 hover:underline">{{$books->getWriter->name}}</span>
+                                                    </a>
+                                                </div>
+                                                <div class="flex-row">
+                                                    <p> {{$books->rating}}/10 · {{$books->likes}} beğeni</p>
+                                                    <p style="font-size: 10px; margin-top:-15px;"> Ekleme tarihi : {{date('d-m-Y', strtotime($books->created_at))}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -616,7 +585,6 @@
                             </div>
                         </div>
                         @endforeach
-                        <hr>
                     @endforeach
                 </div>
             </div>
