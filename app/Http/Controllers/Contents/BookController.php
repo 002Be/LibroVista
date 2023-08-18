@@ -73,7 +73,7 @@ class BookController extends Controller
         $biraktimID = [];
         foreach($userData["books_dropped"] as $key){ array_unshift($biraktimID, $key["id"]); }
 
-        $bookData = Book::select('data')->first();
+        $bookData = Book::select('data')->where("id",$id)->first();
         $bookData = json_decode($bookData->data, true);
 
         return view("contents.book.single", compact("book","favoriID","takipID","okunacakID","okuyorumID","okudumID","biraktimID","bookData"));
@@ -297,6 +297,8 @@ class BookController extends Controller
         }
         return redirect()->back();
     }
+
+
 
     public function islemInceleme(Request $request){
         $book = Book::where('id', $request->id)->first();
