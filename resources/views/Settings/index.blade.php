@@ -187,7 +187,7 @@
                             Okunan kitap sayısı : {{$counterBooks}}<br>
                             @php $counterMovies=0; @endphp @foreach($userData['movies_watched'] as $book) @php $counterMovies++ @endphp @endforeach
                             İzlenen film sayısı : {{$counterMovies}}<br>
-                            @php $counterSeries=0; @endphp @foreach($userData['series_wached'] as $book) @php $counterSeries++ @endphp @endforeach
+                            @php $counterSeries=0; @endphp @foreach($userData['series_watched'] as $book) @php $counterSeries++ @endphp @endforeach
                             İzlenen dizi sayısı : {{$counterSeries}}<br>
                             LibroVista sürümü : S6.A305.B13<br>
                             LibroVista'ya katılma tarihi : {{date('d-m-Y H:i', strtotime($user->created_at))}}<br>

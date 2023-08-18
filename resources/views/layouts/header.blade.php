@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
-<body style="background-color: #191a1f; color:white;">
+<body style="background-color: #191a1f; color:white; font-size: 16px;">
     <div class="d-flex flex-column flex-shrink-0" style="width: 280px; height:100%; position: fixed; left: 0px;">
         <br><br><br>
         <ul class="nav nav-pills flex-column mb-auto">
@@ -35,7 +35,7 @@
             <li>
                 <a href="#" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                Popülerler
+                Karşılaştır
                 </a>
             </li>
             <li>

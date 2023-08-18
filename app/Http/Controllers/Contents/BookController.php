@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\Writer;
 use App\Models\Book;
 use App\Models\User;
+use Carbon\Carbon;
 
 
 class BookController extends Controller
@@ -72,7 +73,10 @@ class BookController extends Controller
         $biraktimID = [];
         foreach($userData["books_dropped"] as $key){ array_unshift($biraktimID, $key["id"]); }
 
-        return view("contents.book.single", compact("book","favoriID","takipID","okunacakID","okuyorumID","okudumID","biraktimID"));
+        $bookData = Book::select('data')->first();
+        $bookData = json_decode($bookData->data, true);
+
+        return view("contents.book.single", compact("book","favoriID","takipID","okunacakID","okuyorumID","okudumID","biraktimID","bookData"));
     }
 
     //* Kitabı sil
@@ -291,6 +295,40 @@ class BookController extends Controller
             $user->save();
             toastr()->success("","Başarılı");
         }
+        return redirect()->back();
+    }
+
+    public function islemInceleme(Request $request){
+        $book = Book::where('id', $request->id)->first();
+        $bookData = json_decode($book->data, true);
+        $newReviews = [
+            "bookId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "reviews" => $request->reviews
+        ];
+        $bookData['reviews'][] = $newReviews;
+        $book->data = json_encode($bookData);
+        $book->save();
+
+        toastr()->success("","Başarılı");
+        return redirect()->back();
+    }
+
+    public function islemAlinti(Request $request){
+        $book = Book::where('id', $request->id)->first();
+        $bookData = json_decode($book->data, true);
+        $newReviews = [
+            "bookId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "quotes" => $request->quotes
+        ];
+        $bookData['quotes'][] = $newReviews;
+        $book->data = json_encode($bookData);
+        $book->save();
+
+        toastr()->success("","Başarılı");
         return redirect()->back();
     }
 }

@@ -51,7 +51,9 @@ Route::get('/Kitap/Islem/FavorilereEkle/{id}-{name}-{slug}', [App\Http\Controlle
 Route::get('/Kitap/Islem/Okunacak/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemOkunacak'])->name("book.islem.Okunacak");
 Route::get('/Kitap/Islem/Okunan/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemOkunan'])->name("book.islem.Okunan");
 Route::get('/Kitap/Islem/Okudum/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemOkudum'])->name("book.islem.Okudum");
-Route::get('/Kitap/Islem/Bıraktım/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemBiraktim'])->name("book.islem.Biraktim");
+Route::get('/Kitap/Islem/Biraktim/{id}-{name}-{slug}', [App\Http\Controllers\Contents\BookController::class, 'islemBiraktim'])->name("book.islem.Biraktim");
+Route::post('/Kitap/Islem/Inceleme', [App\Http\Controllers\Contents\BookController::class, 'islemInceleme'])->name("book.islem.Inceleme");
+Route::post('/Kitap/Islem/Alinti', [App\Http\Controllers\Contents\BookController::class, 'islemAlinti'])->name("book.islem.Alinti");
 
 Route::get('/Film/{id}', [App\Http\Controllers\Contents\MovieController::class, 'indexMovie'])->name("movie.index");
 Route::get('/Film/Islem/TakipEt/{id}-{name}-{slug}', [App\Http\Controllers\Contents\MovieController::class, 'islemTakipEt'])->name("movie.islem.TakipEt");

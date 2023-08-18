@@ -76,17 +76,37 @@
         <label class="btn btn-outline-primary" for="btnradio1">İncelemeler</label>
 
         <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapseOne">
-        <label class="btn btn-outline-primary" for="btnradio2">Paylaşımlar</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapseOne">
-        <label class="btn btn-outline-primary" for="btnradio3">Alıntılar</label>
+        <label class="btn btn-outline-primary" for="btnradio2">Alıntılar</label>
     </div>
 
-    <div class="accordion" id="accordionExample" >
-        <div class="accordion-item" style="background-color:#191a1f; color:white; border:none;">
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item" style="background-color:#191a1f; border:none;">
             <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                <div class="card card-body" style="background-color: #191a1f;">
+                    <form action="{{route('book.islem.Inceleme')}}" method="POST"> @csrf
+                        <textarea name="reviews" cols="30" rows="5" class="form-control" style="background-color: #191a1f; color:white;" required></textarea>
+                        <input type="hidden" name="id" value="{{$book->id}}">
+                        <button type="submit" class="btn w-100 btn-success mt-2">Paylaş</button>
+                    </form>
+                    <hr style="color: white;">
+
+
+
+                    @foreach($bookData['reviews'] as $reviews)
+                        @php
+                            $user = App\Models\User::find($reviews['userId']);
+                        @endphp
+                    <div style="color: white;">
+                        <p>{{$user->name}}</p>
+                        <p>{{$reviews["reviews"]}}</p>
+                        <p>{{Carbon\Carbon::parse($reviews["date"])->diffForHumans()}}</p>
+                    </div>
+                        
+                    @endforeach
+
+
+
+
                 </div>
             </div>
         </div>
@@ -97,16 +117,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion-item" style="background-color:#191a1f; color:white; border:none;">
-            <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                </div>
-            </div>
-        </div>
         
     </div>
 </div>
-
-
 @endsection
