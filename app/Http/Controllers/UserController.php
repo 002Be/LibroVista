@@ -18,6 +18,21 @@ class UserController extends Controller
     public function userLoginRegister(Request $request){
         if($request->process=="register"){
 
+            if(!User::where("username", $request->username))
+            {
+                toastr()->error($request->username." kullanıcı adı alınmış!","Kayıt Başarısız");
+                return redirect()->back();
+            }
+            if(!User::where("email", $request->email))
+            {
+                toastr()->error($request->email." mail adresine ait bir hesap mevcut!","Kayıt Başarısız");
+                return redirect()->back();
+            }
+            if($request->password!=$request->passwordR){
+                toastr()->error("Parola uyuşmuyor!","Kayıt Başarısız");
+                return redirect()->back();
+            }
+
             $user = new User;
             $user->name = $request->name;
             $user->username = $request->username;

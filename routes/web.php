@@ -19,6 +19,7 @@ Route::post('/Ayarlar', [App\Http\Controllers\UserController::class, 'userSettin
 
 // |Diğer Sayfalar---------------------------------------------------------------------------
 Route::get("/About", function(){ return view("Others/About"); })->name("page.about");
+Route::post("/Contact", [App\Http\Controllers\ContactController::class, 'contactCreate'])->name("contact.create");
 Route::get("/Contact", function(){ return view("Others/Contact"); })->name("page.contact");
 Route::get("/FAQ", function(){ return view("Others/FAQ"); })->name("page.faq");
 Route::get("/PrivacyPolicy", function(){ return view("Others/PrivacyPolicy"); })->name("page.privacyPolicy");

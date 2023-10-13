@@ -13,17 +13,17 @@
             </p>
             <div class="row">
                 <div>
-                    <form id="contact-form" name="contact-form"> @csrf
+                    <form method="POST" action="{{route('contact.create')}}"> @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="name" name="name" class="form-control">
+                                    <input type="text" id="name" name="name" class="form-control" required>
                                     <label for="name" class="">Adınız</label>
                                 </div>
                             </div><br>
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="email" name="email" class="form-control">
+                                    <input type="text" id="email" name="email" class="form-control" required>
                                     <label for="email" class="">E-Posta adresiniz</label>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="subject" name="subject" class="form-control">
+                                    <input type="text" id="subject" name="subject" class="form-control" required>
                                     <label for="subject" class="">Konu</label>
                                 </div>
                             </div>
@@ -39,15 +39,15 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="md-form">
-                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" required></textarea>
                                     <label for="message">Mesajınız</label>
                                 </div>
                             </div>
                         </div>
+                        <div class="text-center text-md-left d-grid gap-2"><br>
+                            <button class="btn btn-block btn-primary" type="submit">İlet</button>
+                        </div>
                     </form>
-                    <div class="text-center text-md-left d-grid gap-2"><br>
-                        <button class="btn btn-block btn-primary" onclick="document.getElementById('contact-form').submit();">İlet</button>
-                    </div>
                     <div class="status"></div>
                 </div>
             </div>

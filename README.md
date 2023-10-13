@@ -22,6 +22,7 @@ LibroVista, kitap ve film tutkunlarının buluşma noktası haline gelerek, insa
 ...Projenin ilerleyen vakitlerinde eklenecektir...
 
 ## Durum
+- **13.10.2023** | İletişim sayfası etkin hale getirildi.
 - **13.10.2023** | Eksiklikler ve hatalar giderildi.
 - **15.08.2023** | İçerikler için Takip Et, Favorilere Ekle, Okuyorum, Bitirdim, Okunacak ve Bıraktım özellikleri eklendi ve etkin hale getirildi.
 - **09.08.2023** | Listeleme sayfalarında ki içeriklerin linkleri etkin hale getirildi.
