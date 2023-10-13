@@ -55,20 +55,28 @@ class MovieController extends Controller
     public function indexMovie($id){
         $movie = Movie::where("id",$id)->first();
 
-        $userData = User::where('username', Auth::user()->username)->first();
-        $userData = json_decode($userData->data, true);
-        $favoriID = [];
-        foreach($userData["favorite_movies"] as $key){ array_unshift($favoriID, $key["id"]); }
-        $takipID = [];
-        foreach($userData["followed_movies"] as $key){ array_unshift($takipID, $key["id"]); }
-        $izlenecekID = [];
-        foreach($userData["movies_to_watched"] as $key){ array_unshift($izlenecekID, $key["id"]); }
-        $izledimID = [];
-        foreach($userData["movies_finished"] as $key){ array_unshift($izledimID, $key["id"]); }
-        $biraktimID = [];
-        foreach($userData["movies_dropped"] as $key){ array_unshift($biraktimID, $key["id"]); }
+        $movieData = Movie::select('data')->where("id",$id)->first();
+        $movieData = json_decode($movieData->data, true);
 
-        return view("contents.movie.single", compact("movie","favoriID","takipID","izlenecekID","izledimID","biraktimID"));
+        if(isset(Auth::user()->username)){
+            $userData = User::where('username', Auth::user()->username)->first();
+            $userData = json_decode($userData->data, true);
+
+            $favoriID = [];
+            foreach($userData["favorite_movies"] as $key){ array_unshift($favoriID, $key["id"]); }
+            $takipID = [];
+            foreach($userData["followed_movies"] as $key){ array_unshift($takipID, $key["id"]); }
+            $izlenecekID = [];
+            foreach($userData["movies_to_watched"] as $key){ array_unshift($izlenecekID, $key["id"]); }
+            $izledimID = [];
+            foreach($userData["movies_finished"] as $key){ array_unshift($izledimID, $key["id"]); }
+            $biraktimID = [];
+            foreach($userData["movies_dropped"] as $key){ array_unshift($biraktimID, $key["id"]); }
+
+            return view("contents.movie.single", compact("movie","favoriID","takipID","izlenecekID","izledimID","biraktimID","movieData"));
+        }else{
+            return view("contents.movie.single", compact("movie","movieData"));
+        }
     }
 
     //*
@@ -247,6 +255,40 @@ class MovieController extends Controller
             $user->save();
             toastr()->success("","Başarılı");
         }
+        return redirect()->back();
+    }
+
+    public function islemInceleme(Request $request){
+        $movie = Movie::where('id', $request->id)->first();
+        $movieData = json_decode($movie->data, true);
+        $newReviews = [
+            "movieId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "reviews" => $request->reviews
+        ];
+        $movieData['reviews'][] = $newReviews;
+        $movie->data = json_encode($movieData);
+        $movie->save();
+
+        toastr()->success("","Başarılı");
+        return redirect()->back();
+    }
+
+    public function islemAlinti(Request $request){
+        $movie = Movie::where('id', $request->id)->first();
+        $movieData = json_decode($movie->data, true);
+        $newReviews = [
+            "movieId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "quotes" => $request->quotes
+        ];
+        $movieData['quotes'][] = $newReviews;
+        $movie->data = json_encode($movieData);
+        $movie->save();
+
+        toastr()->success("","Başarılı");
         return redirect()->back();
     }
 }

@@ -46,19 +46,26 @@ class ActorController extends Controller
     public function indexActor($id){
         $actor = Actor::where("id",$id)->first();
 
+        $actorData = Actor::select('data')->where("id",$id)->first();
+        $actorData = json_decode($actorData->data, true);
+
         $actorDate = $actor->date;
         $birthDate = Carbon::createFromFormat('Y-m-d', $actorDate);
         $currentDate = Carbon::now();
         $ageActor = $currentDate->diffInYears($birthDate);
 
-        $userData = User::where('username', Auth::user()->username)->first();
-        $userData = json_decode($userData->data, true);
-        $favoriID = [];
-        $takipID = [];
-        foreach($userData["favorite_actors"] as $key){ array_unshift($favoriID, $key["id"]); }
-        foreach($userData["followed_actors"] as $key){ array_unshift($takipID, $key["id"]); }
+        if(isset(Auth::user()->username)){
+            $userData = User::where('username', Auth::user()->username)->first();
+            $userData = json_decode($userData->data, true);
+            $favoriID = [];
+            $takipID = [];
+            foreach($userData["favorite_actors"] as $key){ array_unshift($favoriID, $key["id"]); }
+            foreach($userData["followed_actors"] as $key){ array_unshift($takipID, $key["id"]); }
 
-        return view("contents.actor.single", compact("actor","ageActor","favoriID","takipID"));
+            return view("contents.actor.single", compact("actor","ageActor","favoriID","takipID","actorData"));
+        }else{
+            return view("contents.actor.single", compact("actor","ageActor","actorData"));
+        }
     }
 
     //* 
@@ -117,6 +124,40 @@ class ActorController extends Controller
             $user->save(); // Kullanıcıyı kaydet
             toastr()->success("Favorilere eklendi","Başarılı");
         }
+        return redirect()->back();
+    }
+
+    public function islemInceleme(Request $request){
+        $actor = Actor::where('id', $request->id)->first();
+        $actorData = json_decode($actor->data, true);
+        $newReviews = [
+            "actorId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "reviews" => $request->reviews
+        ];
+        $actorData['reviews'][] = $newReviews;
+        $actor->data = json_encode($actorData);
+        $actor->save();
+
+        toastr()->success("","Başarılı");
+        return redirect()->back();
+    }
+
+    public function islemAlinti(Request $request){
+        $actor = Actor::where('id', $request->id)->first();
+        $actorData = json_decode($actor->data, true);
+        $newReviews = [
+            "actorId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "quotes" => $request->quotes
+        ];
+        $actorData['quotes'][] = $newReviews;
+        $actor->data = json_encode($actorData);
+        $actor->save();
+
+        toastr()->success("","Başarılı");
         return redirect()->back();
     }
 }

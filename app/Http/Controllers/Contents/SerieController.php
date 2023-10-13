@@ -55,22 +55,29 @@ class SerieController extends Controller
     public function indexSerie($id){
         $serie = Serie::where("id",$id)->first();
 
-        $userData = User::where('username', Auth::user()->username)->first();
-        $userData = json_decode($userData->data, true);
-        $favoriID = [];
-        foreach($userData["favorite_series"] as $key){ array_unshift($favoriID, $key["id"]); }
-        $takipID = [];
-        foreach($userData["followed_series"] as $key){ array_unshift($takipID, $key["id"]); }
-        $izlenecekID = [];
-        foreach($userData["series_to_watched"] as $key){ array_unshift($izlenecekID, $key["id"]); }
-        $izliyorumID = [];
-        foreach($userData["series_watched"] as $key){ array_unshift($izliyorumID, $key["id"]); }
-        $izledimID = [];
-        foreach($userData["series_finished"] as $key){ array_unshift($izledimID, $key["id"]); }
-        $biraktimID = [];
-        foreach($userData["series_dropped"] as $key){ array_unshift($biraktimID, $key["id"]); }
+        $serieData = Serie::select('data')->where("id",$id)->first();
+        $serieData = json_decode($serieData->data, true);
 
-        return view("contents.serie.single", compact("serie","favoriID","takipID","izlenecekID","izliyorumID","izledimID","biraktimID"));
+        if(isset(Auth::user()->username)){
+            $userData = User::where('username', Auth::user()->username)->first();
+            $userData = json_decode($userData->data, true);
+            $favoriID = [];
+            foreach($userData["favorite_series"] as $key){ array_unshift($favoriID, $key["id"]); }
+            $takipID = [];
+            foreach($userData["followed_series"] as $key){ array_unshift($takipID, $key["id"]); }
+            $izlenecekID = [];
+            foreach($userData["series_to_watched"] as $key){ array_unshift($izlenecekID, $key["id"]); }
+            $izliyorumID = [];
+            foreach($userData["series_watched"] as $key){ array_unshift($izliyorumID, $key["id"]); }
+            $izledimID = [];
+            foreach($userData["series_finished"] as $key){ array_unshift($izledimID, $key["id"]); }
+            $biraktimID = [];
+            foreach($userData["series_dropped"] as $key){ array_unshift($biraktimID, $key["id"]); }
+
+            return view("contents.serie.single", compact("serie","favoriID","takipID","izlenecekID","izliyorumID","izledimID","biraktimID","serieData"));
+        }else{
+            return view("contents.serie.single", compact("serie","serieData"));
+        }
     }
 
     //*
@@ -289,6 +296,40 @@ class SerieController extends Controller
             $user->save();
             toastr()->success("","Başarılı");
         }
+        return redirect()->back();
+    }
+
+    public function islemInceleme(Request $request){
+        $serie = Serie::where('id', $request->id)->first();
+        $serieData = json_decode($serie->data, true);
+        $newReviews = [
+            "serieId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "reviews" => $request->reviews
+        ];
+        $serieData['reviews'][] = $newReviews;
+        $serie->data = json_encode($serieData);
+        $serie->save();
+
+        toastr()->success("","Başarılı");
+        return redirect()->back();
+    }
+
+    public function islemAlinti(Request $request){
+        $serie = Serie::where('id', $request->id)->first();
+        $serieData = json_decode($serie->data, true);
+        $newReviews = [
+            "serieId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "quotes" => $request->quotes
+        ];
+        $serieData['quotes'][] = $newReviews;
+        $serie->data = json_encode($serieData);
+        $serie->save();
+
+        toastr()->success("","Başarılı");
         return redirect()->back();
     }
 }

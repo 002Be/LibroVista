@@ -46,19 +46,26 @@ class DirectorController extends Controller
     public function indexDirector($id){
         $director = Director::where("id",$id)->first();
 
+        $directorData = Director::select('data')->where("id",$id)->first();
+        $directorData = json_decode($directorData->data, true);
+
         $directorDate = $director->date;
         $birthDate = Carbon::createFromFormat('Y-m-d', $directorDate);
         $currentDate = Carbon::now();
         $ageDirector = $currentDate->diffInYears($birthDate);
 
-        $userData = User::where('username', Auth::user()->username)->first();
-        $userData = json_decode($userData->data, true);
-        $favoriID = [];
-        $takipID = [];
-        foreach($userData["favorite_directors"] as $key){ array_unshift($favoriID, $key["id"]); }
-        foreach($userData["followed_directors"] as $key){ array_unshift($takipID, $key["id"]); }
+        if(isset(Auth::user()->username)){
+            $userData = User::where('username', Auth::user()->username)->first();
+            $userData = json_decode($userData->data, true);
+            $favoriID = [];
+            $takipID = [];
+            foreach($userData["favorite_directors"] as $key){ array_unshift($favoriID, $key["id"]); }
+            foreach($userData["followed_directors"] as $key){ array_unshift($takipID, $key["id"]); }
 
-        return view("contents.director.single", compact("director","ageDirector","favoriID","takipID"));
+            return view("contents.director.single", compact("director","ageDirector","favoriID","takipID","directorData"));
+        }else{
+            return view("contents.director.single", compact("director","ageDirector","directorData"));
+        }
     }
 
     //* 
@@ -117,6 +124,40 @@ class DirectorController extends Controller
             $user->save(); // Kullanıcıyı kaydet
             toastr()->success("Favorilere eklendi","Başarılı");
         }
+        return redirect()->back();
+    }
+
+    public function islemInceleme(Request $request){
+        $director = Director::where('id', $request->id)->first();
+        $directorData = json_decode($director->data, true);
+        $newReviews = [
+            "directorId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "reviews" => $request->reviews
+        ];
+        $directorData['reviews'][] = $newReviews;
+        $director->data = json_encode($directorData);
+        $director->save();
+
+        toastr()->success("","Başarılı");
+        return redirect()->back();
+    }
+
+    public function islemAlinti(Request $request){
+        $director = Director::where('id', $request->id)->first();
+        $directorData = json_decode($director->data, true);
+        $newReviews = [
+            "directorId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "quotes" => $request->quotes
+        ];
+        $directorData['quotes'][] = $newReviews;
+        $director->data = json_encode($directorData);
+        $director->save();
+
+        toastr()->success("","Başarılı");
         return redirect()->back();
     }
 }

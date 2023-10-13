@@ -59,11 +59,15 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="inputUsername">Kullanıcı Adı</label>
-                                            <input name="username" type="text" class="form-control" id="inputUsername" value="{{$user->username}}" placeholder="Username" required>
+                                            <input name="username" type="text" class="form-control" id="inputUsername" value="{{$user->username}}" required>
                                         </div><br>
                                         <div class="form-group">
                                             <label for="inputUsername">Ad Soyadı</label>
-                                            <input name="name" type="text" class="form-control" id="inputUsername" value="{{$user->name}}" placeholder="Username" required>
+                                            <input name="name" type="text" class="form-control" id="inputUsername" value="{{$user->name}}" required>
+                                        </div><br>
+                                        <div class="form-group">
+                                            <label for="inputUsername">Konumu</label>
+                                            <input name="location" type="text" class="form-control" id="inputLocation" value="{{$userData['location']}}" required>
                                         </div><br>
                                         <div class="form-group col-md-4">
                                             <label for="datepicker">Doğum Tarihi</label>

@@ -57,26 +57,31 @@ class BookController extends Controller
     public function indexBook($id){
         $book = Book::where("id",$id)->first();
 
-        $userData = User::where('username', Auth::user()->username)->first();
-        $userData = json_decode($userData->data, true);
-
-        $favoriID = [];
-        foreach($userData["favorite_books"] as $key){ array_unshift($favoriID, $key["id"]); }
-        $takipID = [];
-        foreach($userData["followed_books"] as $key){ array_unshift($takipID, $key["id"]); }
-        $okunacakID = [];
-        foreach($userData["books_to_read"] as $key){ array_unshift($okunacakID, $key["id"]); }
-        $okuyorumID = [];
-        foreach($userData["books_read"] as $key){ array_unshift($okuyorumID, $key["id"]); }
-        $okudumID = [];
-        foreach($userData["books_finished"] as $key){ array_unshift($okudumID, $key["id"]); }
-        $biraktimID = [];
-        foreach($userData["books_dropped"] as $key){ array_unshift($biraktimID, $key["id"]); }
-
         $bookData = Book::select('data')->where("id",$id)->first();
         $bookData = json_decode($bookData->data, true);
 
-        return view("contents.book.single", compact("book","favoriID","takipID","okunacakID","okuyorumID","okudumID","biraktimID","bookData"));
+        if(isset(Auth::user()->username)){
+            $userData = User::where('username', Auth::user()->username)->first();
+            $userData = json_decode($userData->data, true);
+
+            $favoriID = [];
+            foreach($userData["favorite_books"] as $key){ array_unshift($favoriID, $key["id"]); }
+            $takipID = [];
+            foreach($userData["followed_books"] as $key){ array_unshift($takipID, $key["id"]); }
+            $okunacakID = [];
+            foreach($userData["books_to_read"] as $key){ array_unshift($okunacakID, $key["id"]); }
+            $okuyorumID = [];
+            foreach($userData["books_read"] as $key){ array_unshift($okuyorumID, $key["id"]); }
+            $okudumID = [];
+            foreach($userData["books_finished"] as $key){ array_unshift($okudumID, $key["id"]); }
+            $biraktimID = [];
+            foreach($userData["books_dropped"] as $key){ array_unshift($biraktimID, $key["id"]); }
+
+            return view("contents.book.single", compact("book","favoriID","takipID","okunacakID","okuyorumID","okudumID","biraktimID","bookData"));
+        }else{
+            return view("contents.book.single", compact("book","bookData"));
+        }
+        
     }
 
     //* Kitabı sil

@@ -30,9 +30,15 @@
                     <span>{{$book->name}}</span>
                 </a>
                 <div class="flex-row">
+                    @if($book->writer=!"-")
                     <a href="{{route('writer.index',$book->getWriter->id)}}" style="text-decoration: none; color:white;">
                         <span title="{{$book->writer}}" aria-label="{{$book->writer}}" class="text truncate text-15 hover:underline">{{$book->getWriter->name}}</span>
                     </a>
+                    @else
+                    <a style="text-decoration: none; color:white;">
+                        <span class="text truncate text-15 hover:underline">Belirtilmemiş</span>
+                    </a>
+                    @endif
                 </div>
                 <div class="flex-row">
                     <span> {{$book->rating}}/10 · {{$book->likes}} beğeni</span>

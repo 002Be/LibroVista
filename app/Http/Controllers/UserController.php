@@ -96,6 +96,9 @@ class UserController extends Controller
             $user->data = collect($user->data)->merge([
                 'biography' => $request->biography,
             ]);
+            $user->data = collect($user->data)->merge([
+                'location' => $request->location,
+            ]);
 
             $user->save();
 

@@ -10,6 +10,7 @@
             <img src="/{{$book->image}}" width="300" height="450" alt="{{$book->name}}">
         </div>
         <div class="m-4 col-7">
+            @if(isset(Auth::user()->username))
             <div class="d-flex justify-content-end">
                 <button type="button" class="btn btn-danger" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sliders2-vertical"></i></button>
                 <ul class="dropdown-menu">
@@ -25,6 +26,7 @@
                     <li><a class="dropdown-item" href="#">Şikayet Et</a></li>
                 </ul>
             </div>
+            @endif
 
             <div style="text-align: center;"> <i class="bi bi-star"></i> {{$book->rating}} · <i class="bi bi-people"></i> 10</div><br>
             <div>
@@ -86,7 +88,11 @@
                     <form action="{{route('book.islem.Inceleme')}}" method="POST"> @csrf
                         <textarea name="reviews" cols="30" rows="5" class="form-control" style="background-color: #191a1f; color:white;" required placeholder="İnceleme yaz"></textarea>
                         <input type="hidden" name="id" value="{{$book->id}}">
+                        @if(isset(Auth::user()->username))
                         <button type="submit" class="btn w-100 btn-outline-success mt-2">Paylaş</button>
+                        @else
+                        <button type="reset" class="btn w-100 btn-outline-success mt-2">Paylaşım Yapabilmek İçin Giriş Yapınız</button>
+                        @endif
                     </form>
                     @foreach($bookData['reviews'] as $reviews)
                         @php $user = App\Models\User::find($reviews['userId']); @endphp
@@ -94,7 +100,7 @@
                         <div style="color: white;">
                             <div>
                                 <div style="float:left;" class="me-1">
-                                    <a href="#">
+                                    <a href="{{route('profile.index',$user->username)}}">
                                         <img src="{{asset('uploads/writer/person.png')}}" width="50px" style="border-radius: 50%;" alt="{{$user->name}}">
                                     </a>
                                     </div>
@@ -103,7 +109,7 @@
                                         {{Carbon\Carbon::parse($reviews["date"])->diffForHumans()}}
                                     </div>
                                     <div>
-                                        <a href="#" style="text-decoration:none; color:white;">
+                                        <a href="{{route('profile.index',$user->username)}}" style="text-decoration:none; color:white;">
                                             {{$user->name}} <br>
                                             <span style="color:gray;">{{"@".$user->username}}</span>
                                         </a>
@@ -128,7 +134,11 @@
                     <form action="{{route('book.islem.Alinti')}}" method="POST"> @csrf
                         <textarea name="quotes" cols="30" rows="5" class="form-control" style="background-color: #191a1f; color:white;" required placeholder="Alıntı yaz"></textarea>
                         <input type="hidden" name="id" value="{{$book->id}}">
+                        @if(isset(Auth::user()->username))
                         <button type="submit" class="btn w-100 btn-outline-success mt-2">Paylaş</button>
+                        @else
+                        <button type="reset" class="btn w-100 btn-outline-success mt-2">Paylaşım Yapabilmek İçin Giriş Yapınız</button>
+                        @endif
                     </form>
                     @foreach($bookData['quotes'] as $quotes)
                         @php $user = App\Models\User::find($quotes['userId']); @endphp
@@ -136,7 +146,7 @@
                         <div style="color: white;">
                             <div>
                                 <div style="float:left;" class="me-1">
-                                    <a href="#">
+                                    <a href="{{route('profile.index',$user->username)}}">
                                         <img src="{{asset('uploads/writer/person.png')}}" width="50px" style="border-radius: 50%;" alt="{{$user->name}}">
                                     </a>
                                     </div>
@@ -145,7 +155,7 @@
                                         {{Carbon\Carbon::parse($quotes["date"])->diffForHumans()}}
                                     </div>
                                     <div>
-                                        <a href="#" style="text-decoration:none; color:white;">
+                                        <a href="{{route('profile.index',$user->username)}}" style="text-decoration:none; color:white;">
                                             {{$user->name}} <br>
                                             <span style="color:gray;">{{"@".$user->username}}</span>
                                         </a>

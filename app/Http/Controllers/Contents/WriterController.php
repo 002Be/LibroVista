@@ -46,19 +46,26 @@ class WriterController extends Controller
     public function indexWriter($id){
         $writer = Writer::where("id",$id)->first();
 
+        $writerData = Writer::select('data')->where("id",$id)->first();
+        $writerData = json_decode($writerData->data, true);
+
         $writerDate = $writer->date;
         $birthDate = Carbon::createFromFormat('Y-m-d', $writerDate);
         $currentDate = Carbon::now();
         $ageWriter = $currentDate->diffInYears($birthDate);
 
-        $userData = User::where('username', Auth::user()->username)->first();
-        $userData = json_decode($userData->data, true);
-        $favoriID = [];
-        $takipID = [];
-        foreach($userData["favorite_writers"] as $key){ array_unshift($favoriID, $key["id"]); }
-        foreach($userData["followed_writers"] as $key){ array_unshift($takipID, $key["id"]); }
+        if(isset(Auth::user()->username)){
+            $userData = User::where('username', Auth::user()->username)->first();
+            $userData = json_decode($userData->data, true);
+            $favoriID = [];
+            $takipID = [];
+            foreach($userData["favorite_writers"] as $key){ array_unshift($favoriID, $key["id"]); }
+            foreach($userData["followed_writers"] as $key){ array_unshift($takipID, $key["id"]); }
 
-        return view("contents.writer.single", compact("writer","ageWriter","favoriID","takipID"));
+            return view("contents.writer.single", compact("writer","ageWriter","favoriID","takipID","writerData"));
+        }else{
+            return view("contents.writer.single", compact("writer","ageWriter","writerData"));
+        }
     }
 
     //* 
@@ -117,6 +124,40 @@ class WriterController extends Controller
             $user->save(); // Kullanıcıyı kaydet
             toastr()->success("Favorilere eklendi","Başarılı");
         }
+        return redirect()->back();
+    }
+
+    public function islemInceleme(Request $request){
+        $writer = Writer::where('id', $request->id)->first();
+        $writerData = json_decode($writer->data, true);
+        $newReviews = [
+            "writerId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "reviews" => $request->reviews
+        ];
+        $writerData['reviews'][] = $newReviews;
+        $writer->data = json_encode($writerData);
+        $writer->save();
+
+        toastr()->success("","Başarılı");
+        return redirect()->back();
+    }
+
+    public function islemAlinti(Request $request){
+        $writer = Writer::where('id', $request->id)->first();
+        $writerData = json_decode($writer->data, true);
+        $newReviews = [
+            "writerId" => $request->id,
+            "userId" => Auth::user()->id,
+            "date" => date("Y-m-d H:i"),
+            "quotes" => $request->quotes
+        ];
+        $writerData['quotes'][] = $newReviews;
+        $writer->data = json_encode($writerData);
+        $writer->save();
+
+        toastr()->success("","Başarılı");
         return redirect()->back();
     }
 }
